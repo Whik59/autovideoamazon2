@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3french",
+  "proxy_config": {
+    "host": "gw.thunderproxy.net",
+    "port": 5959,
+    "username": "0veAOAHVmW1Cdh12Ug-stc-isp-sid-0",
+    "password": "MjoYlZPyVLz16Jv"
+  },
+  "target_country": "France",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "screen_width": 1920,
+    "screen_height": 1440,
+    "timezone": "Europe/Paris",
+    "language": "fr-FR,fr;q=0.9,en;q=0.8",
+    "platform": "Win32",
+    "platform_family": "Windows",
+    "hardware_concurrency": 10,
+    "device_memory": 32,
+    "max_touch_points": 5,
+    "webgl_vendor": "Intel Inc.",
+    "webgl_renderer": "Intel(R) Iris(R) Xe Graphics",
+    "canvas_noise": 0.0007616774146570179,
+    "webgl_noise": 1.7314002962768666e-05,
+    "audio_noise": 7.766232924555011e-06,
+    "audio_sample_rate": 96000,
+    "audio_buffer_size": 512,
+    "connection_type": "unknown",
+    "connection_downlink": 84.12,
+    "connection_rtt": 29,
+    "do_not_track": "1",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 1,
+    "viewport_width": 1900,
+    "viewport_height": 1355,
+    "color_depth": 32,
+    "pixel_ratio": 1.5,
+    "battery_charging": false,
+    "battery_level": 0.37,
+    "permissions": {
+      "camera": "prompt",
+      "microphone": "denied",
+      "notifications": "prompt",
+      "geolocation": "prompt"
+    }
+  }
+}

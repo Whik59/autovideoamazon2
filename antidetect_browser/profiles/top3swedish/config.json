@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3swedish",
+  "proxy_config": {
+    "host": "122.8.50.208",
+    "port": 5595,
+    "username": "N504351149",
+    "password": "7E8HLKXG"
+  },
+  "target_country": "Sweden",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.34",
+    "screen_width": 1920,
+    "screen_height": 1440,
+    "timezone": "Europe/Stockholm",
+    "language": "sv-SE,sv;q=0.9",
+    "platform": "MacIntel",
+    "platform_family": "Mac",
+    "hardware_concurrency": 6,
+    "device_memory": 8,
+    "max_touch_points": 5,
+    "webgl_vendor": "Apple Inc.",
+    "webgl_renderer": "Apple M2",
+    "canvas_noise": 0.0005477343316208243,
+    "webgl_noise": 6.30778770418952e-05,
+    "audio_noise": 2.896124610039704e-06,
+    "audio_sample_rate": 48000,
+    "audio_buffer_size": 128,
+    "connection_type": "wifi",
+    "connection_downlink": 8.38,
+    "connection_rtt": 188,
+    "do_not_track": "1",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 5,
+    "viewport_width": 1870,
+    "viewport_height": 1304,
+    "color_depth": 24,
+    "pixel_ratio": 3,
+    "battery_charging": true,
+    "battery_level": 0.63,
+    "permissions": {
+      "camera": "granted",
+      "microphone": "denied",
+      "notifications": "denied",
+      "geolocation": "granted"
+    }
+  }
+}

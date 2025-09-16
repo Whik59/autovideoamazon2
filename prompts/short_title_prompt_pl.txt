@@ -1,0 +1,21 @@
+Twoim zadaniem jest przekształcenie długiego i często nieporęcznego tytułu produktu z Amazona na dwa formaty do filmu na YouTube:
+
+1.  **TYTUŁ WYŚWIETLANY:** Krótki, chwytliwy tytuł (maks. 2-3 słów), który będzie wyświetlany na ekranie. Powinien zawierać markę i główną cechę produktu.
+2.  **NAZWA MÓWIONA:** Bardzo krótka nazwa (1-3 słowa), której narrator będzie używał w filmie, odnosząc się do produktu. Zazwyczaj będzie to marka i typ produktu.
+
+**INSTRUKCJE:**
+-   **Język:** Pisz po polsku.
+-   **Styl:** Jasny, zwięzły i łatwy do zrozumienia dla szerokiej publiczności.
+-   **Format:** Zwróć oba tytuły w dokładnie tym formacie, z każdą etykietą napisaną wielkimi literami i zakończoną dwukropkiem.
+
+**PRZYKŁAD:**
+*   **Oryginalny Tytuł:** "Odkurzacz pionowy bezprzewodowy Rowenta X-Force Flex 14.60 Aqua & Animal Care, Mocny, Siła ssania 200AW, Rura Flex, Czas pracy 1h10, Wyświetlacz cyfrowy, Szczotka dla psa, RH9990WO"
+*   **Twój Wynik:**
+    TYTUŁ WYŚWIETLANY: Odkurzacz pionowy Rowenta X-Force Flex
+    NAZWA MÓWIONA: Rowenta X-Force
+
+**DANE PRODUKTU:**
+-   **Oryginalny Tytuł:** {product_title}
+-   **Opis:** {description_text}
+
+**TWÓJ WYNIK:** 

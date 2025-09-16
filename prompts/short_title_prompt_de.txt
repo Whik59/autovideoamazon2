@@ -1,0 +1,21 @@
+Deine Aufgabe ist es, einen langen und oft unhandlichen Amazon-Produkttitel in zwei Formate für ein YouTube-Video umzuwandeln:
+
+1.  **TITEL FÜR DIE ANZEIGE:** Ein kurzer, einprägsamer Titel (maximal 2-3 Wörter), der auf dem Bildschirm angezeigt wird. Er sollte den Markennamen und das Hauptmerkmal des Produkts enthalten.
+2.  **MÜNDLICHER NAME:** Ein sehr kurzer Name (1-3 Wörter), den der Sprecher im Video verwenden wird, um sich auf das Produkt zu beziehen. Normalerweise ist dies die Marke und der Produkttyp.
+
+**ANWEISUNGEN:**
+-   **Sprache:** Schreibe auf Deutsch.
+-   **Stil:** Klar, prägnant und für ein allgemeines Publikum leicht verständlich.
+-   **Format:** Gib die beiden Titel genau in diesem Format aus, mit jeder Bezeichnung in Großbuchstaben, gefolgt von einem Doppelpunkt.
+
+**BEISPIEL:**
+*   **Originaltitel:** "Rowenta X-Force Flex 14.60 Aqua & Animal Care Kabelloser Stabstaubsauger, Leistungsstark, 200AW Saugkraft, Flex-Gelenk, 1h10 Laufzeit, Digitales Display, Hundebürste, RH9990WO"
+*   **Deine Ausgabe:**
+    TITEL FÜR DIE ANZEIGE: Rowenta X-Force Flex Stabstaubsauger
+    MÜNDLICHER NAME: Der Rowenta X-Force
+
+**PRODUKTDATEN:**
+-   **Originaltitel:** {product_title}
+-   **Beschreibung:** {description_text}
+
+**DEINE AUSGABE:** 

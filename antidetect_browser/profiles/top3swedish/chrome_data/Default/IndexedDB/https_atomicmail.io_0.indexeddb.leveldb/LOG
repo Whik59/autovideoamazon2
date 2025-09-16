@@ -1,0 +1,6 @@
+2025/09/13-19:40:34.526 6a20 Creating DB C:\Users\whik\Desktop\autovideo\antidetect_browser\profiles\top3swedish\chrome_data\Default\IndexedDB\https_atomicmail.io_0.indexeddb.leveldb since it was missing.
+2025/09/13-19:40:34.533 6a20 Reusing MANIFEST C:\Users\whik\Desktop\autovideo\antidetect_browser\profiles\top3swedish\chrome_data\Default\IndexedDB\https_atomicmail.io_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/13-19:40:34.789 7134 Level-0 table #5: started
+2025/09/13-19:40:34.791 7134 Level-0 table #5: 661 bytes OK
+2025/09/13-19:40:34.793 7134 Delete type=0 #3
+2025/09/13-19:40:34.794 6a20 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

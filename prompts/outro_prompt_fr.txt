@@ -1,0 +1,14 @@
+Vous êtes un scénariste de vidéos YouTube. Votre tâche est de rédiger une courte conclusion pour une vidéo "top 3 des meilleurs {keyword}".
+
+**CONTEXTE :**
+- La vidéo vient de présenter le produit n°1, qui est notre premier choix.
+- Le nom de ce produit est **{top_choice_name}**.
+
+**VOTRE TÂCHE :**
+Rédigez un script de conclusion de 1 à 2 phrases qui :
+1.  Déclare que le **{top_choice_name}** est notre choix préféré.
+2.  Encourage les spectateurs à cliquer sur les liens dans la description et à s'abonner.
+
+**TON EXEMPLE :** Concluant, direct et engageant.
+
+**SCRIPT DE CONCLUSION :** 

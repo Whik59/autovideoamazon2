@@ -1,0 +1,60 @@
+Laptop
+Gaming-laptop
+Ultrabook
+Convertible tablet
+High-end Chromebook
+Mini-pc
+Vooraf gebouwde desktop-pc
+Gaming-monitor
+4K-monitor
+Ultrabrede monitor
+Draagbare monitor
+Mechanisch toetsenbord
+Draadloze gamingmuis
+Ergonomische toetsenbord-muis set
+Draadloze trackball
+Webcam voor streaming
+Headset voor thuiswerken
+USB-C-dockingstation
+NAS-server
+Externe harde schijf
+Externe SSD
+Wi-Fi 6-router
+Mesh Wi-Fi-systeem
+Wi-Fi-repeater
+Laser-multifunctionele printer
+Draagbare fotoprinter
+Documentscanner
+Grafisch tablet
+Tablet-stylus
+Ergonomische bureaustoel
+Elektrisch zit-sta-bureau
+Thunderbolt 4-dock
+Wi-Fi 7-router
+4-bay NAS
+32-inch 4K-monitor
+Kleurenlaserprinter
+Ergonomische bureaustoel
+Moederbord
+Processor
+Grafische kaart
+RAM-geheugen
+PC-behuizing
+PC-voeding
+PC-waterkoeling
+CPU-ventilator
+Interne NVMe SSD
+Beamer
+Notitie-tablet
+E-reader
+Documentvernietiger
+Laptopstandaard
+Draagbare monitor
+Touchscreen-monitor
+Labelprinter
+Digitaal whiteboard
+Draadloos presentatiesysteem
+Interactieve beamer
+Noise-cancelling headset
+Thuisserver
+All-in-one-pc 

@@ -1,0 +1,6 @@
+2025/09/08-23:00:46.088 4f3c Creating DB C:\Users\whik\Desktop\autovideo\antidetect_browser\profiles\lacuisine\chrome_data\Default\WebStorage\7\IndexedDB\indexeddb.leveldb since it was missing.
+2025/09/08-23:00:46.095 4f3c Reusing MANIFEST C:\Users\whik\Desktop\autovideo\antidetect_browser\profiles\lacuisine\chrome_data\Default\WebStorage\7\IndexedDB\indexeddb.leveldb/MANIFEST-000001
+2025/09/08-23:13:46.581 12e4 Level-0 table #5: started
+2025/09/08-23:13:46.589 12e4 Level-0 table #5: 17065 bytes OK
+2025/09/08-23:13:46.592 12e4 Delete type=0 #3
+2025/09/08-23:13:46.594 12e4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

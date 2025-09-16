@@ -1,0 +1,4 @@
+Saugroboter mit Wischfunktion:step5_upload
+Kabelloser Stabstaubsauger:step5_upload
+Beutelloser Staubsauger:step5_upload
+Dampfreiniger:step5_upload

@@ -1,0 +1,6 @@
+2025/09/10-22:44:03.658 4184 Creating DB C:\Users\whik\Desktop\autovideo\antidetect_browser\profiles\top3german\chrome_data\Default\WebStorage\5\IndexedDB\indexeddb.leveldb since it was missing.
+2025/09/10-22:44:03.662 4184 Reusing MANIFEST C:\Users\whik\Desktop\autovideo\antidetect_browser\profiles\top3german\chrome_data\Default\WebStorage\5\IndexedDB\indexeddb.leveldb/MANIFEST-000001
+2025/09/10-22:44:05.696 71c0 Level-0 table #5: started
+2025/09/10-22:44:05.698 71c0 Level-0 table #5: 364 bytes OK
+2025/09/10-22:44:05.700 71c0 Delete type=0 #3
+2025/09/10-22:44:05.700 71c0 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

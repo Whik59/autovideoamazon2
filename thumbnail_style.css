@@ -1,0 +1,571 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 1280px;
+    height: 720px;
+    font-family: 'Anton', sans-serif;
+    overflow: hidden; /* Important to prevent scrollbars */
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* White base background so transparent areas show white */
+    background: white;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ENHANCED: Default gradient - will be overridden by inline styles */
+    background: linear-gradient(95deg, 
+        #FF4500 0%,           /* Bright red-orange start */
+        #FF6B35 15%,          /* Vibrant orange-red */
+        #FF8C00 30%,          /* Neon orange */
+        #FFD700 42%,          /* Bright golden yellow */
+        rgba(255, 215, 0, 0.4) 47%, /* Fading golden glow */
+        rgba(255, 140, 0, 0.2) 52%, /* Subtle orange fade */
+        transparent 60%       /* Clean white transition */
+    );
+    /* Enhanced vibrancy with multiple color stops for excitement */
+    z-index: 1;
+}
+
+/* --- UPDATED: Product image container - smaller and moved further down --- */
+.product-image-container {
+    position: absolute;
+    top: 40%; /* MOVED FURTHER DOWN - changed from 35% to 45% */
+    left: 65%; /* MOVED MORE LEFT - changed from 75% to 65% */
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 420px; /* MADE EVEN SMALLER - reduced from 480px to 420px */
+    height: 420px; /* MADE EVEN SMALLER - reduced from 480px to 420px */
+    background: #ffffff; /* WHITE FRAME - solid white background */
+    border-radius: 20px; /* ROUNDED FRAME - added border radius */
+    border: 4px solid #ffffff; /* SMALLER WHITE FRAME - reduced from 6px to 4px */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3), /* Main shadow for depth */
+        0 8px 16px rgba(0, 0, 0, 0.15); /* Secondary shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px; /* SMALLER FRAME - reduced padding from 20px to 15px */
+}
+
+/* --- REMOVED: Red cross no longer needed --- */
+.red-cross {
+    display: none; /* Hidden red cross */
+}
+
+/* --- REMOVED: Green tick no longer needed --- */
+.green-tick {
+    display: none; /* Hidden green tick */
+}
+
+/* --- REMOVED: Second product no longer needed --- */
+.small-products {
+    display: none; /* Hidden second product container */
+}
+
+.small-product {
+    display: none; /* Hidden second product */
+}
+
+.small-product img {
+    display: none; /* Hidden second product image */
+}
+
+/* --- UPDATED: Product image optimized for white frame --- */
+.product-image {
+    max-width: 90%; /* OPTIMIZED FOR FRAME - reduced from 100% to 90% */
+    max-height: 90%; /* OPTIMIZED FOR FRAME - reduced from 100% to 90% */
+    object-fit: contain;
+    border-radius: 10px; /* SUBTLE ROUNDED CORNERS - matches frame style */
+    filter: none; /* REMOVED SHADOWS - frame provides contrast now */
+}
+
+/* --- RESTORED: Avatar made much bigger and in front of keyword --- */
+.avatar-image {
+    position: absolute;
+    bottom: -160px; /* Moved more down - changed from -50px to -80px */
+    left: 340px; /* Moved even more to the right - changed from 280px to 320px */
+    height: 130%; /* Made twice as big - changed from 85% to 170% */
+    z-index: 40; /* Higher than keyword (35) to be in front */
+    transform: scaleX(-1); /* Flipped horizontally */
+}
+
+/* --- REMOVED: Arrow no longer needed --- */
+.arrow {
+    display: none; /* Hidden arrow */
+}
+
+.arrow img {
+    display: none; /* Hidden arrow image */
+}
+
+/* --- REMOVED: TOP 3 text no longer needed --- */
+.top-text {
+    display: none; /* Hidden TOP 3 container */
+}
+
+.top-text h1 {
+    display: none; /* Hidden TOP 3 heading */
+}
+
+.top-best-text {
+    display: none; /* Hidden TOP 3 text */
+}
+
+.stars-rating {
+    display: none; /* Hidden stars rating */
+}
+
+/* UPDATED: Product title made even bigger */
+.year-text {
+    position: absolute;
+    top: 550px; /* MOVED FURTHER DOWN - changed from 20px to 10px from bottom */
+    left: 20px; /* Left side positioning */
+    transform: rotate(-3deg) scale(1.0); /* Removed translateY since we're using bottom positioning */
+    font-size: 78px; /* MADE EVEN BIGGER - increased from 64px to 78px */
+    font-weight: 900; /* Extra bold weight */
+    color: #FFFFFF; /* White text for better contrast */
+    text-shadow: 
+        4px 4px 0px #000000,      /* Strong black outline for readability */
+        6px 6px 15px rgba(0, 0, 0, 0.8), /* Strong drop shadow */
+        0 0 25px rgba(255, 215, 0, 0.9), /* Gold glow effect */
+        0 0 50px rgba(255, 215, 0, 0.5); /* Extended gold glow */
+    font-family: 'Anton', sans-serif; /* Same font as other elements */
+    z-index: 45; /* IN FRONT of character - increased from 35 to 45 (avatar is z-index 40) */
+    text-transform: uppercase;
+    background: linear-gradient(145deg, #FFD700, #FFA500, #FF8C00, #FF6B35); /* Premium gold-to-orange gradient */
+    padding: 10px 16px; /* Smaller padding for bottom */
+    border-radius: 18px; /* Smaller radius */
+    border: 4px solid #FFFFFF; /* White border */
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),   /* Smaller shadow for bottom */
+        inset 0 3px 0 rgba(255, 255, 255, 0.6), /* Inner highlight */
+        0 0 0 3px rgba(255, 215, 0, 0.4), /* Gold outer glow ring */
+        0 0 25px rgba(255, 215, 0, 0.3); /* Gold aura */
+    letter-spacing: 3px; /* Letter spacing for premium feel */
+    animaeon: shimmer 3s ease-in-out infinite; /* Subtle shimmer animation */
+    overflow: hidden; /* For shimmer effect */
+    position: relative; /* For pseudo-element */
+    display: inline-block; /* Adapts to content width */
+    width: auto; /* Auto width to fit content */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Add shimmer effect overlay */
+.year-text::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: shimmer-move 3s ease-in-out infinite;
+}
+
+/* --- ENHANCED: +100 TESTED moved further down --- */
+.review-count {
+    position: absolute;
+    top: 55%; /* MOVED FURTHER DOWN - changed from 45% to 55% from top */
+    left: 120px; /* MOVED MORE RIGHT - changed from 25px to 120px from left */
+    transform: translateY(-50%) rotate(2deg) scale(1.0); /* Centered vertically */
+    font-size: 44px; /* MADE BIGGER - increased from 36px to 44px */
+    font-weight: 900; /* Extra bold like other premium elements */
+    color: #FFFFFF;
+    text-shadow: 
+        3px 3px 0px #000000, /* Stronger black outline for visibility */
+        5px 5px 15px rgba(0, 0, 0, 1), /* Deeper drop shadow */
+        0 0 20px rgba(34, 197, 94, 1), /* Brighter green glow */
+        0 0 40px rgba(34, 197, 94, 0.8), /* Extended bright green glow */
+        0 0 60px rgba(34, 197, 94, 0.5); /* Outer green aura for dark/light themes */
+    background: linear-gradient(135deg, #00FF7F, #22c55e, #16a34a, #15803d); /* Enhanced green gradient with spring green */
+    padding: 12px 20px; /* Optimized padding */
+    border-radius: 25px; /* Rounded corners */
+    border: 6px solid #FFFFFF; /* THICKER white border for better visibility */
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.7), /* Stronger drop shadow */
+        inset 0 4px 0 rgba(255, 255, 255, 0.6), /* Brighter inner highlight */
+        0 0 0 4px rgba(34, 197, 94, 0.6), /* THICKER green outer glow ring */
+        0 0 30px rgba(34, 197, 94, 0.4), /* Enhanced green aura */
+        0 0 50px rgba(0, 255, 127, 0.3); /* Additional spring green glow */
+    z-index: 40; /* High z-index */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Letter spacing */
+    font-family: 'Anton', sans-serif; /* Consistent font */
+    animation: enhanced-tested-glow 4s ease-in-out infinite; /* Enhanced glow animation */
+    overflow: visible; /* Visible overflow */
+    position: absolute; /* Absolute positioning */
+    display: block; /* Block display */
+}
+
+/* Add checkmark icon effect */
+.review-count::before {
+    content: '✓ ';
+    font-size: 0.8em;
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 0px #000000,
+        0 0 10px rgba(255, 255, 255, 0.8);
+    margin-right: 8px;
+}
+
+/* Star rating styling */
+.star-rating {
+    display: block;
+    font-size: 24px;
+    color: #FFD700;
+    text-shadow: 
+        1px 1px 0px #000000,
+        0 0 10px rgba(255, 215, 0, 0.8);
+    margin-top: 4px;
+    letter-spacing: 2px;
+}
+
+/* REMOVED: Discount badge completely hidden */
+.discount-badge {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* REMOVED: Today Only urgency badge */
+.today-only {
+    display: none; /* Hidden - removed from thumbnail */
+}
+
+/* --- REMOVED: Best price badge on main product --- */
+.price-badge-main {
+    display: none; /* Hidden green badge in top-right */
+}
+
+/* --- UPDATED: Before/After gap reduced to move after more left --- */
+.before-after-container {
+    position: absolute;
+    top: 20px; /* Keep top positioning */
+    left: 0px; /* Edge of screen positioning */
+    z-index: 50;
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    gap: 15px; /* REDUCED gap - changed from 30px to 15px to move after more left */
+    align-items: center; /* Center align items horizontally */
+}
+
+/* REMOVED: Arrow styling - no longer needed */
+
+.before-price, .after-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 60px; /* Made even bigger - changed from 32px 48px to 40px 60px */
+    border-radius: 60px; /* Made even bigger - changed from 50px to 60px */
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    border: 12px solid #FFFFFF; /* Made even thicker - changed from 10px to 12px */
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.6), /* Made even bigger - changed from 0 24px 70px */
+        inset 0 8px 0 rgba(255, 255, 255, 0.4), /* Made even bigger - changed from 0 6px 0 */
+        0 0 0 5px rgba(255, 107, 53, 0.3); /* Made even bigger - changed from 0 0 0 4px */
+    transform: rotate(-2deg);
+    letter-spacing: 5px; /* Made even bigger - changed from 4px to 5px */
+}
+
+.before-price {
+    background: linear-gradient(135deg, #8B0000, #DC143C, #FF4500); /* Darker, more urgent red */
+    color: #FFFFFF;
+    text-shadow: 
+        3px 3px 0px #4B0000,
+        5px 5px 16px rgba(0, 0, 0, 1),
+        0 0 20px rgba(139, 0, 0, 0.9),
+        0 0 40px rgba(139, 0, 0, 0.5);
+    transform: rotate(-3deg) scale(0.85); /* Smaller and more tilted to de-emphasize */
+    opacity: 0.9; /* Slightly faded to de-emphasize */
+}
+
+.after-price {
+    background: linear-gradient(135deg, #00FF00, #32CD32, #FFD700); /* Brighter, more appealing green */
+    color: #FFFFFF;
+    text-shadow: 
+        3px 3px 0px #006400, /* Smaller shadow for smaller element */
+        5px 5px 15px rgba(0, 0, 0, 1),
+        0 0 25px rgba(0, 255, 0, 0.9),
+        0 0 50px rgba(0, 255, 0, 0.6);
+    transform: rotate(2deg) scale(0.95); /* SMALLER - changed from 1.15 to 0.95 to avoid covering avatar face */
+    border: 8px solid #FFFFFF; /* Thinner border for smaller element */
+}
+
+.before-label {
+    font-size: 42px; /* MADE BIGGER - increased from 32px to 42px */
+    font-weight: 700; /* Less bold */
+    margin-bottom: 8px;
+    letter-spacing: 4px;
+    opacity: 0.9; /* Slightly faded */
+}
+
+.after-label {
+    font-size: 48px; /* MADE BIGGER - increased from 36px to 48px */
+    font-weight: 900; /* Extra bold */
+    margin-bottom: 12px; /* Smaller margin */
+    letter-spacing: 6px; /* Smaller letter spacing */
+    text-shadow: 
+        2px 2px 0px #006400,
+        3px 3px 10px rgba(0, 0, 0, 1); /* Smaller shadow */
+}
+
+.before-amount {
+    font-size: 64px; /* Made bigger - changed from 52px to 64px */
+    font-weight: 800;
+    text-shadow: 
+        6px 6px 20px rgba(0, 0, 0, 1),
+        0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.after-amount {
+    font-size: 72px; /* Made bigger - changed from 60px to 72px */
+    font-weight: 900;
+    text-shadow: 
+        6px 6px 20px rgba(0, 0, 0, 1),
+        0 0 40px rgba(255, 255, 255, 0.9),
+        0 0 80px rgba(0, 255, 0, 0.4); /* Green glow */
+    animation: pulse 2s ease-in-out infinite alternate; /* Subtle pulsing animation */
+}
+
+.before-amount {
+    text-decoration: line-through;
+    opacity: 0.9;
+}
+
+/* --- REMOVED: Old price container styles --- */
+.price-container {
+    display: none !important; /* Hidden price container */
+    visibility: hidden !important; /* Ensure completely hidden */
+    opacity: 0 !important; /* Make transparent */
+}
+
+.price-badge {
+    display: none !important; /* Hidden price badge */
+    visibility: hidden !important;
+}
+
+.price-before {
+    display: none !important; /* Hidden price before */
+    visibility: hidden !important;
+}
+
+.price-after {
+    display: none !important; /* Hidden price after */
+    visibility: hidden !important;
+}
+
+/* Add subtle pulse animation for the after-price to draw attention */
+@keyframes pulse {
+    0% { 
+        transform: rotate(2deg) scale(1.15);
+        box-shadow: 
+            0 24px 70px rgba(0, 0, 0, 0.6),
+            inset 0 6px 0 rgba(255, 255, 255, 0.4),
+            0 0 0 4px rgba(255, 107, 53, 0.3);
+    }
+    100% { 
+        transform: rotate(2deg) scale(1.18);
+        box-shadow: 
+            0 28px 80px rgba(0, 0, 0, 0.7),
+            inset 0 8px 0 rgba(255, 255, 255, 0.5),
+            0 0 0 6px rgba(0, 255, 0, 0.5);
+    }
+}
+
+/* Premium shimmer animation for the 2025 keyword */
+@keyframes shimmer {
+    0% { 
+        background: linear-gradient(145deg, #FFD700, #FFA500, #FF8C00, #FF6B35);
+        box-shadow: 
+            0 12px 35px rgba(0, 0, 0, 0.7),
+            inset 0 3px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 3px rgba(255, 215, 0, 0.4),
+            0 0 30px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        background: linear-gradient(145deg, #FFEF94, #FFD700, #FFA500, #FF8C00);
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.8),
+            inset 0 4px 0 rgba(255, 255, 255, 0.8),
+            0 0 0 4px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.5);
+    }
+    100% { 
+        background: linear-gradient(145deg, #FFD700, #FFA500, #FF8C00, #FF6B35);
+        box-shadow: 
+            0 12px 35px rgba(0, 0, 0, 0.7),
+            inset 0 3px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 3px rgba(255, 215, 0, 0.4),
+            0 0 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Shimmer light sweep animation */
+@keyframes shimmer-move {
+    0% { 
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* ENHANCED: Premium glow animation for +100 TESTED with improved visibility */
+@keyframes enhanced-tested-glow {
+    0% { 
+        background: linear-gradient(135deg, #00FF7F, #22c55e, #16a34a, #15803d);
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.7),
+            inset 0 4px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 4px rgba(34, 197, 94, 0.6),
+            0 0 30px rgba(34, 197, 94, 0.4),
+            0 0 50px rgba(0, 255, 127, 0.3);
+        text-shadow: 
+            3px 3px 0px #000000,
+            5px 5px 15px rgba(0, 0, 0, 1),
+            0 0 20px rgba(34, 197, 94, 1),
+            0 0 40px rgba(34, 197, 94, 0.8),
+            0 0 60px rgba(34, 197, 94, 0.5);
+    }
+    50% { 
+        background: linear-gradient(135deg, #7FFF00, #00FF7F, #22c55e, #16a34a);
+        box-shadow: 
+            0 20px 50px rgba(0, 0, 0, 0.8),
+            inset 0 6px 0 rgba(255, 255, 255, 0.8),
+            0 0 0 6px rgba(34, 197, 94, 0.8),
+            0 0 40px rgba(34, 197, 94, 0.6),
+            0 0 70px rgba(0, 255, 127, 0.5), /* Enhanced spring green glow */
+            0 0 90px rgba(127, 255, 0, 0.3); /* Bright chartreuse accent */
+        text-shadow: 
+            3px 3px 0px #000000,
+            5px 5px 15px rgba(0, 0, 0, 1),
+            0 0 30px rgba(34, 197, 94, 1),
+            0 0 60px rgba(34, 197, 94, 0.9),
+            0 0 80px rgba(0, 255, 127, 0.7), /* Peak spring green glow */
+            0 0 100px rgba(127, 255, 0, 0.4); /* Peak chartreuse visibility */
+    }
+    100% { 
+        background: linear-gradient(135deg, #00FF7F, #22c55e, #16a34a, #15803d);
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.7),
+            inset 0 4px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 4px rgba(34, 197, 94, 0.6),
+            0 0 30px rgba(34, 197, 94, 0.4),
+            0 0 50px rgba(0, 255, 127, 0.3);
+        text-shadow: 
+            3px 3px 0px #000000,
+            5px 5px 15px rgba(0, 0, 0, 1),
+            0 0 20px rgba(34, 197, 94, 1),
+            0 0 40px rgba(34, 197, 94, 0.8),
+            0 0 60px rgba(34, 197, 94, 0.5);
+    }
+}
+
+/* Urgent pulse animation for urgency badge */
+@keyframes urgent-pulse {
+    0% { 
+        transform: rotate(3deg) scale(0.9);
+        box-shadow: 
+            0 8px 20px rgba(0, 0, 0, 0.6),
+            inset 0 2px 0 rgba(255, 255, 255, 0.4),
+            0 0 0 2px rgba(255, 0, 0, 0.3),
+            0 0 20px rgba(255, 0, 0, 0.2);
+    }
+    50% { 
+        transform: rotate(3deg) scale(0.95);
+        box-shadow: 
+            0 10px 25px rgba(0, 0, 0, 0.7),
+            inset 0 3px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 3px rgba(255, 0, 0, 0.5),
+            0 0 30px rgba(255, 0, 0, 0.4);
+    }
+    100% { 
+        transform: rotate(3deg) scale(0.9);
+        box-shadow: 
+            0 8px 20px rgba(0, 0, 0, 0.6),
+            inset 0 2px 0 rgba(255, 255, 255, 0.4),
+            0 0 0 2px rgba(255, 0, 0, 0.3),
+            0 0 20px rgba(255, 0, 0, 0.2);
+    }
+}
+
+/* ENHANCED: Discount badge pulse with red accents and excitement */
+@keyframes enhanced-discount-pulse {
+    0% { 
+        transform: rotate(-3deg) scale(1.15);
+        box-shadow: 
+            0 20px 50px rgba(0, 0, 0, 0.8),
+            inset 0 6px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 5px rgba(34, 197, 94, 0.6),
+            0 0 45px rgba(34, 197, 94, 0.4),
+            0 0 70px rgba(255, 69, 0, 0.3),
+            0 0 90px rgba(255, 215, 0, 0.2);
+        text-shadow: 
+            4px 4px 0px #000000,
+            6px 6px 15px rgba(0, 0, 0, 1),
+            0 0 25px rgba(34, 197, 94, 1),
+            0 0 50px rgba(34, 197, 94, 0.7),
+            0 0 75px rgba(255, 69, 0, 0.4);
+    }
+    50% { 
+        transform: rotate(-3deg) scale(1.22);
+        box-shadow: 
+            0 25px 60px rgba(0, 0, 0, 0.9),
+            inset 0 8px 0 rgba(255, 255, 255, 0.8),
+            0 0 0 7px rgba(34, 197, 94, 0.8),
+            0 0 60px rgba(34, 197, 94, 0.6),
+            0 0 90px rgba(255, 69, 0, 0.5), /* ENHANCED red accent glow */
+            0 0 120px rgba(255, 215, 0, 0.4); /* Enhanced golden glow */
+        text-shadow: 
+            4px 4px 0px #000000,
+            6px 6px 15px rgba(0, 0, 0, 1),
+            0 0 35px rgba(34, 197, 94, 1),
+            0 0 70px rgba(34, 197, 94, 0.8),
+            0 0 100px rgba(255, 69, 0, 0.6), /* PEAK red accent glow */
+            0 0 130px rgba(255, 215, 0, 0.5); /* Peak golden excitement */
+    }
+    100% { 
+        transform: rotate(-3deg) scale(1.15);
+        box-shadow: 
+            0 20px 50px rgba(0, 0, 0, 0.8),
+            inset 0 6px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 5px rgba(34, 197, 94, 0.6),
+            0 0 45px rgba(34, 197, 94, 0.4),
+            0 0 70px rgba(255, 69, 0, 0.3),
+            0 0 90px rgba(255, 215, 0, 0.2);
+        text-shadow: 
+            4px 4px 0px #000000,
+            6px 6px 15px rgba(0, 0, 0, 1),
+            0 0 25px rgba(34, 197, 94, 1),
+            0 0 50px rgba(34, 197, 94, 0.7),
+            0 0 75px rgba(255, 69, 0, 0.4);
+    }
+}
+
+/* REMOVED: Arrow pulse animation - no longer needed */ 

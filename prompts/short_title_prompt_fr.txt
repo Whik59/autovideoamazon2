@@ -1,0 +1,17 @@
+Tu es un expert en marketing YouTube. Ta mission est de créer deux éléments distincts pour un produit : un titre d'affichage percutant et un nom oral très court.
+
+TITRE ORIGINAL:
+{product_title}
+
+DESCRIPTION (pour le contexte):
+{description_text}
+
+**TA MISSION :**
+
+1.  **TITRE D'AFFICHAGE (2-3 mots) :** Un titre court, percutant et optimisé pour le SEO. Garde la MARQUE et le MODÈLE.
+2.  **NOM ORAL (1-3 mots) :** Le nom le plus court et naturel possible à dire à l'oral (ex: "Singer Simple", "Brother FS 40"). Garde la MARQUE et le MODÈLE.
+
+**FORMAT DE SORTIE OBLIGATOIRE :**
+
+TITRE D'AFFICHAGE: [Ton titre de 2-3 mots ici]
+NOM ORAL: [Ton nom de 1-3 mots ici] 

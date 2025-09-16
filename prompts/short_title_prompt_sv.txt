@@ -1,0 +1,21 @@
+Din uppgift är att omvandla en lång och ofta otymplig Amazon-produkttitel till två format för en YouTube-video:
+
+1.  **VISNINGSTITEL:** En kort, slagkraftig titel (max 2-3 ord) som visas på skärmen. Den ska inkludera varumärket och produktens huvudfunktion.
+2.  **TALNAMN:** Ett mycket kort namn (1-3 ord) som berättaren kommer att använda i videon för att hänvisa till produkten. Vanligtvis är detta varumärket och produkttypen.
+
+**INSTRUKTIONER:**
+-   **Språk:** Skriv på svenska.
+-   **Stil:** Tydlig, koncis och lättförståelig för en allmän publik.
+-   **Format:** Mata ut de två titlarna i exakt detta format, med varje etikett i versaler följt av ett kolon.
+
+**EXEMPEL:**
+*   **Originaltitel:** "Rowenta X-Force Flex 14.60 Aqua & Animal Care sladdlös skaftdammsugare, kraftfull, 200AW sugkraft, Flex-led, 1h10 drifttid, digital display, hundborste, RH9990WO"
+*   **Ditt Resultat:**
+    VISNINGSTITEL: Rowenta X-Force Flex Skaftdammsugare
+    TALNAMN: Rowenta X-Force
+
+**PRODUKTDATA:**
+-   **Originaltitel:** {product_title}
+-   **Beskrivning:** {description_text}
+
+**DITT RESULTAT:** 

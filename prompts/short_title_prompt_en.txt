@@ -1,0 +1,21 @@
+Your task is to transform a long and often unwieldy Amazon product title into two formats for a YouTube video:
+
+1.  **DISPLAY TITLE:** A short, catchy title (2-3 words max) that will be displayed on screen. It should include the brand and the product's main feature.
+2.  **SPOKEN NAME:** A very short name (1-3 words) that the narrator will use in the video to refer to the product. Typically, this will be the brand and product type.
+
+**INSTRUCTIONS:**
+-   **Language:** Write in English.
+-   **Style:** Clear, concise, and easy for a general audience to understand.
+-   **Format:** Output the two titles in this exact format, with each label in all caps followed by a colon.
+
+**EXAMPLE:**
+*   **Original Title:** "Rowenta X-Force Flex 14.60 Aqua & Animal Care Cordless Stick Vacuum Cleaner, Powerful, 200AW Suction, Flex-joint, 1h10 Runtime, Digital Display, Dog Brush, RH9990WO"
+*   **Your Output:**
+    DISPLAY TITLE: Rowenta X-Force Flex Stick Vacuum
+    SPOKEN NAME: The Rowenta X-Force
+
+**PRODUCT DATA:**
+-   **Original Title:** {product_title}
+-   **Description:** {description_text}
+
+**YOUR OUTPUT:** 

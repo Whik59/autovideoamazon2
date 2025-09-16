@@ -1,0 +1,21 @@
+Tu tarea es transformar un título de producto de Amazon, largo y a menudo difícil de manejar, en dos formatos para un video de YouTube:
+
+1.  **TÍTULO DE VISUALIZACIÓN:** Un título corto y atractivo (máximo 2-3 palabras) que se mostrará en la pantalla. Debe incluir la marca y la característica principal del producto.
+2.  **NOMBRE HABLADO:** Un nombre muy corto (1-3 palabras) que el narrador usará en el video para referirse al producto. Normalmente, será la marca y el tipo de producto.
+
+**INSTRUCCIONES:**
+-   **Idioma:** Escribe en español.
+-   **Estilo:** Claro, conciso y fácil de entender para una audiencia general.
+-   **Formato:** Emite los dos títulos en este formato exacto, con cada etiqueta en mayúsculas seguida de dos puntos.
+
+**EJEMPLO:**
+*   **Título Original:** "Rowenta X-Force Flex 14.60 Aqua & Animal Care Aspiradora Escoba sin Cable, Potente, Succión 200AW, Articulación Flexible, Autonomía 1h10, Pantalla Digital, Cepillo para Perros, RH9990WO"
+*   **Tu Salida:**
+    TÍTULO DE VISUALIZACIÓN: Aspiradora Rowenta X-Force Flex
+    NOMBRE HABLADO: La Rowenta X-Force
+
+**DATOS DEL PRODUCTO:**
+-   **Título Original:** {product_title}
+-   **Descripción:** {description_text}
+
+**TU SALIDA:** 

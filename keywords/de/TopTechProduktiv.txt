@@ -1,0 +1,61 @@
+Laptop
+Gaming-Laptop
+Ultrabook
+Convertible-Tablet
+High-End-Chromebook
+Mini-PC
+Fertig-Desktop-PC
+Gaming-Monitor
+4K-Monitor
+Ultrabreitbild-Monitor
+Tragbarer Monitor
+Mechanische Tastatur
+Kabellose Gaming-Maus
+Ergonomisches Tastatur-Maus-Set
+Kabelloser Trackball
+Streaming-Webcam
+Home-Office-Headset
+USB-C-Dockingstation
+NAS-Server
+Externe Festplatte
+Externe SSD
+Wi-Fi-6-Router
+Mesh-WLAN-System
+WLAN-Repeater
+Multifunktions-Laserdrucker
+Tragbarer Fotodrucker
+Dokumentenscanner
+Grafiktablett
+Tablet-Stift
+Ergonomischer Bürostuhl
+Elektrisch höhenverstellbarer Schreibtisch
+Thunderbolt-4-Station
+Wi-Fi-7-Router
+4-Bay-NAS
+32-Zoll-4K-Monitor
+Farblaserdrucker
+Ergonomischer Stuhl
+Motherboard
+Prozessor
+Grafikkarte
+RAM-Speicher
+PC-Gehäuse
+PC-Netzteil
+PC-Wasserkühlung
+CPU-Lüfter
+Interne NVMe-SSD
+Videoprojektor
+Notiz-Tablet
+E-Reader
+Aktenvernichter
+Laptop-Ständer
+Touchscreen-Monitor
+Etikettendrucker
+Digitales Whiteboard
+Drahtloses Präsentationssystem
+Interaktiver Projektor
+Geräuschunterdrückende Kopfhörer
+Heimserver
+All-in-One-PC
+Vertikale Maus
+Dokumentenkamera 

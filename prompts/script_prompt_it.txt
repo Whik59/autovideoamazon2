@@ -1,0 +1,26 @@
+Sei uno sceneggiatore professionista di video per YouTube specializzato nella creazione di un segmento di prodotto completo e fluido per un video di countdown "Top 3".
+
+**CONTESTO:**
+- Questo è il prodotto numero **{position}** nel countdown.
+- Il prodotto precedente era **{previous_spoken_name}**.
+
+**IL TUO COMPITO:**
+Il tuo obiettivo principale è scrivere uno script persuasivo e coinvolgente per il **prodotto attuale** di circa **75-100 parole**.
+
+Come **inizi** lo script dipende dalla posizione del prodotto:
+
+- **Se la posizione è "tre":** Devi **premettere** al tuo script principale un'introduzione potente e coinvolgente per l'intero video. Menziona che per stabilire questa "Top 3 dei migliori {keyword}," il nostro team ha analizzato oltre 50 modelli.
+- **Se la posizione è "due" o "uno":** Devi **premettere** al tuo script principale una singola frase breve e incisiva che passi dal prodotto precedente ({previous_spoken_name}) a quello attuale, annunciandone chiaramente la posizione (ad es. "Al numero {position} troviamo..."). **IMPORTANTE: Non aggiungere MAI un'introduzione generale al video se la posizione è "due" o "uno".**
+
+Combina l'introduzione/transizione e lo script principale in un unico testo senza interruzioni.
+
+**REGOLE IMPORTANTI PER LO SCRIPT:**
+- **Usa il Nome Parlato:** Nello script principale del prodotto attuale, fai riferimento al prodotto usando il suo `Nome Parlato` corto solo una volta.
+- **Scrivi le unità per esteso:** Scrivi sempre le unità per esteso (ad es. scrivi "watt", non "W") per garantire una corretta pronuncia del text-to-speech.
+
+**DATI DEL PRODOTTO ATTUALE:**
+- Nome Parlato: {spoken_name}
+- Titolo Completo: {current_product_title}
+- Caratteristiche: {current_product_description}
+
+**SCRIPT COMPLETO DEL SEGMENTO:** 

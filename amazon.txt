@@ -1,0 +1,239 @@
+# --- Informatique & Productivité ---
+Ordinateur portable
+PC portable gamer
+Ultrabook
+Tablette convertible
+Chromebook haut de gamme
+Mini PC
+PC de bureau pré-monté
+Écran PC gaming
+Moniteur 4K
+Moniteur ultra-large
+Écran portable
+Clavier mécanique
+Souris gamer sans fil
+Ensemble clavier-souris ergonomique
+Trackball sans fil
+Webcam pour streaming
+Casque-micro pour télétravail
+Station d'accueil USB-C
+Serveur NAS
+Disque dur externe
+SSD externe
+Routeur Wi-Fi 6
+Système Wi-Fi Mesh
+Répéteur Wi-Fi
+Imprimante multifonction laser
+Imprimante photo portable
+Scanner de documents
+Tablette graphique
+Stylet pour tablette
+Fauteuil de bureau ergonomique
+Bureau assis-debout électrique
+Station Thunderbolt 4
+Routeur Wi‑Fi 7
+NAS 4 baies
+Moniteur 32 pouces 4K
+Imprimante laser couleur
+Chaise bureau ergonomique
+Carte mère
+Processeur
+Carte graphique
+Mémoire RAM
+Boîtier PC
+Alimentation PC
+Refroidissement liquide PC
+Ventilateur de processeur
+Disque dur interne SSD NVMe
+Vidéo projecteur
+Tablette pour prise de notes
+Liseuse électronique
+Destructeur de documents
+Support pour ordinateur portable
+Moniteur portable
+Écran tactile
+Imprimante d'étiquettes
+Tableau blanc numérique
+Système de présentation sans fil
+Vidéoprojecteur interactif
+
+# --- Maison & Cuisine Tech ---
+Aspirateur robot laveur
+Aspirateur balai sans fil
+Aspirateur sans sac
+Nettoyeur vapeur
+Purificateur d'air
+Déshumidificateur d'air
+Humidificateur d'air
+Ventilateur sur pied
+Climatiseur mobile
+Radiateur électrique à inertie
+Thermostat connecté
+Caméra de surveillance
+Système d'alarme maison
+Serrure connectée
+Sonnette vidéo
+Détecteur de fumée connecté
+Station météo connectée
+Éclairage connecté
+Module volet roulant
+Jardin d'intérieur connecté
+Robot tondeuse
+Nettoyeur haute pression
+Machine à café à grain
+Machine à expresso manuelle
+Robot cuiseur
+Blender chauffant
+Extracteur de jus
+Friteuse sans huile
+Air Fryer
+Four à pizza extérieur
+Grill électrique
+Appareil à raclette
+Gaufrier professionnel
+Machine à pain
+Yaourtière
+Machine sous vide
+Cave à vin
+Réfrigérateur américain
+Congélateur coffre
+Lave-vaisselle
+Lave-linge séchant
+Centrale vapeur
+Fer à repasser sans fil
+Machine à glaçons
+Refroidisseur de vin
+Mixeur plongeant professionnel
+Hachoir à viande électrique
+Trancheuse électrique
+Robot pâtissier pro
+Machine à pâtes
+Déshydrateur alimentaire
+Cuisson sous-vide
+Barbecue électrique
+Plancha inox
+Hotte murale
+Cave à vin 2 zones
+
+# --- Audio, Vidéo & Gaming ---
+Casque à réduction de bruit
+Écouteurs sans fil
+Enceinte Bluetooth
+Barre de son
+Home cinéma
+Amplificateur Hi-Fi
+Platine vinyle
+Enceintes de bibliothèque
+Enceintes colonne
+Caisson de basses
+Lecteur audio réseau
+DAC Audio
+Microphone pour streaming
+Table de mixage
+Enregistreur audio portable
+Casque de monitoring studio
+Appareil photo hybride
+Appareil photo reflex
+Caméra d'action
+Drone caméra 4K
+Stabilisateur pour smartphone
+Gimbal pour appareil photo
+Vidéoprojecteur
+Écran de projection
+Micro-cravate sans fil
+Panneau LED pour vidéo
+Fond vert rétractable
+Objectif pour appareil photo
+Trépied photo
+Sac à dos pour appareil photo
+Moniteur de terrain pour caméra
+Slider pour caméra
+Console de jeu
+Manette de jeu pro
+Casque gaming
+Siège gamer
+Volant de course
+Pédalier pour simulation
+Levier de vitesse simulation
+Hotas pour simulation de vol
+Casque de réalité virtuelle
+Carte d'acquisition streaming
+Stream Deck
+Clavier gamer
+Souris gamer
+PC gamer
+Moniteur gaming 144Hz
+Moniteur gaming 240Hz
+Système son surround
+Lecteur Blu-ray 4K
+Casque TV sans fil
+Microphone de studio
+Interface audio
+Contrôleur MIDI
+Boîte à rythmes
+Barre son Atmos
+Écran gaming 240 Hz
+
+# --- Loisirs & Mobilité Tech ---
+Montre connectée
+Tracker d'activité
+Smartphone haut de gamme
+Smartphone pliable
+Tablette tactile
+Liseuse
+Trottinette électrique
+Vélo électrique
+Skateboard électrique
+Monocycle électrique
+Hoverboard
+Drones FPV
+Voiture télécommandée rapide
+Bateau télécommandé
+Hélicoptère télécommandé
+Lanceur de balle pour chien
+Collier GPS pour chien
+Distributeur de croquettes connecté
+Litière pour chat autonettoyante
+Aquarium avec filtre intégré
+Télescope
+Microscope numérique
+Jumelles
+Jumelles de vision nocturne
+Détecteur de métaux
+GPS de randonnée
+Montre GPS de sport
+Lampe frontale puissante
+Panneau solaire portable
+Batterie externe haute capacité
+Générateur solaire portable
+Glacière électrique
+Réchaud de camping
+Douche solaire portable
+Pistolet de massage
+Appareil d'électrostimulation
+Tapis de course
+Vélo d'appartement
+Rameur
+Haltères réglables
+Banc de musculation
+Miroir fitness connecté
+Imprimante 3D
+Graveur laser
+Découpeuse laser
+Pistolet à air chaud
+Télémètre laser
+Niveau laser
+Caméra d'inspection
+Caméra thermique
+Multimètre numérique
+Station de soudage
+Détecteur de matériaux
+Dashcam
+Traceur GPS
+Chargeur batterie voiture
+Booster de batterie
+Système communication moto
+Vélo électrique trekking
+Trottinette 500W
+Batterie externe 30000
+Montre GPS multisport

@@ -1,0 +1,7 @@
+Küchenmaschine:step5_upload
+Standmixer:step5_upload
+Stabmixer:step5_upload
+Küchenwaage:step5_upload
+Kochfeld:step5_upload
+Backofen:step5_upload
+Mikrowelle:step5_upload

@@ -1,0 +1,14 @@
+You are a YouTube video scriptwriter. Your task is to write a short conclusion for a "top 3 best {keyword}" video.
+
+**CONTEXT:**
+- The video has just presented the #1 product, which is our top pick.
+- The name of this product is **{top_choice_name}**.
+
+**YOUR TASK:**
+Write a 1-2 sentence conclusion script that:
+1.  States that the **{top_choice_name}** is our favorite choice.
+2.  Encourages viewers to click the links in the description and subscribe.
+
+**EXAMPLE TONE:** Conclusive, direct, and engaging.
+
+**CONCLUSION SCRIPT:** 

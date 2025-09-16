@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <link rel="stylesheet" href="overlay_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    <title>Product Overlay</title>
+</head>
+<body>
+    <!-- Main container for the video overlay -->
+    <div class="overlay-container">
+        <!-- Top-left container for the product title -->
+        <div class="title-container">
+            <span class="position-tag">#{{ position }}</span>
+            <span class="title">{{ short_title }}</span>
+        </div>
+
+        <!-- Top-right container for price and rating -->
+        <div class="price-container">
+            <div class="price-new">{{ price }}</div>
+            <div class="rating">
+                <div class="stars-container">
+                    <div class="stars-background">★★★★★</div>
+                    <div class="stars-foreground" style="width: {{ rating_percentage }}%;">★★★★★</div>
+                </div>
+                <span class="rating-text">{{ rating }}</span>
+            </div>
+        </div>
+
+        <div class="cta-group">
+            <div class="info-banner">
+                <span>{{ info_banner_text }}</span>
+            </div>
+            <div class="cta-banner">
+                <span>{{ cta_banner_text }}</span>
+                <span class="arrow">▼</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html> 

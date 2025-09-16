@@ -1,0 +1,6 @@
+PyQt5==5.15.9
+PyQtWebEngine==5.15.6
+requests==2.31.0
+fake-useragent==1.4.0
+selenium==4.15.2
+undetected-chromedriver==3.5.4 

@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3german2",
+  "proxy_config": {
+    "host": "45.93.186.174",
+    "port": 5503,
+    "username": "C64M850866",
+    "password": "OUJP2XQN"
+  },
+  "target_country": "Germany",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    "screen_width": 1024,
+    "screen_height": 768,
+    "timezone": "Europe/Berlin",
+    "language": "de-AT,de;q=0.9",
+    "platform": "Linux x86_64",
+    "platform_family": "Linux",
+    "hardware_concurrency": 32,
+    "device_memory": 8,
+    "max_touch_points": 10,
+    "webgl_vendor": "Advanced Micro Devices, Inc.",
+    "webgl_renderer": "Radeon RX 7800 XT",
+    "canvas_noise": 0.0004937907625814493,
+    "webgl_noise": 5.601709395819996e-05,
+    "audio_noise": 2.935822131084903e-06,
+    "audio_sample_rate": 96000,
+    "audio_buffer_size": 1024,
+    "connection_type": "unknown",
+    "connection_downlink": 94.76,
+    "connection_rtt": 18,
+    "do_not_track": "1",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 2,
+    "viewport_width": 971,
+    "viewport_height": 584,
+    "color_depth": 32,
+    "pixel_ratio": 2.5,
+    "battery_charging": false,
+    "battery_level": 0.79,
+    "permissions": {
+      "camera": "prompt",
+      "microphone": "prompt",
+      "notifications": "granted",
+      "geolocation": "granted"
+    }
+  }
+}

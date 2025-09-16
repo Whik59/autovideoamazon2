@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3dutch2",
+  "proxy_config": {
+    "host": "140.233.209.185",
+    "port": 6370,
+    "username": "MC6SJ51148",
+    "password": "Q906VMCF"
+  },
+  "target_country": "Netherlands",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "screen_width": 2560,
+    "screen_height": 1440,
+    "timezone": "Europe/Amsterdam",
+    "language": "nl-NL,nl;q=0.9,en;q=0.8",
+    "platform": "MacIntel",
+    "platform_family": "Mac",
+    "hardware_concurrency": 6,
+    "device_memory": 8,
+    "max_touch_points": 0,
+    "webgl_vendor": "Apple Inc.",
+    "webgl_renderer": "Apple M1",
+    "canvas_noise": 0.0007160503603038908,
+    "webgl_noise": 2.214480406333423e-05,
+    "audio_noise": 7.725163553893336e-06,
+    "audio_sample_rate": 96000,
+    "audio_buffer_size": 512,
+    "connection_type": "wifi",
+    "connection_downlink": 51.88,
+    "connection_rtt": 98,
+    "do_not_track": "1",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 4,
+    "viewport_width": 2519,
+    "viewport_height": 1363,
+    "color_depth": 24,
+    "pixel_ratio": 1.5,
+    "battery_charging": true,
+    "battery_level": 0.66,
+    "permissions": {
+      "camera": "denied",
+      "microphone": "prompt",
+      "notifications": "denied",
+      "geolocation": "prompt"
+    }
+  }
+}

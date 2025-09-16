@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3usa",
+  "proxy_config": {
+    "host": "67.101.125.80",
+    "port": 7904,
+    "username": "DAIQ151147",
+    "password": "ZGFQRTSX"
+  },
+  "target_country": "USA",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.34",
+    "screen_width": 1024,
+    "screen_height": 768,
+    "timezone": "America/Chicago",
+    "language": "en-US,en;q=0.9,es;q=0.8",
+    "platform": "MacIntel",
+    "platform_family": "Mac",
+    "hardware_concurrency": 8,
+    "device_memory": 6,
+    "max_touch_points": 10,
+    "webgl_vendor": "Apple Inc.",
+    "webgl_renderer": "Apple M1",
+    "canvas_noise": 0.0007542868807313011,
+    "webgl_noise": 8.638637132932426e-05,
+    "audio_noise": 3.872527252456685e-06,
+    "audio_sample_rate": 96000,
+    "audio_buffer_size": 512,
+    "connection_type": "wifi",
+    "connection_downlink": 59.59,
+    "connection_rtt": 42,
+    "do_not_track": "0",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 1,
+    "viewport_width": 934,
+    "viewport_height": 582,
+    "color_depth": 32,
+    "pixel_ratio": 2.5,
+    "battery_charging": true,
+    "battery_level": 0.67,
+    "permissions": {
+      "camera": "denied",
+      "microphone": "granted",
+      "notifications": "prompt",
+      "geolocation": "granted"
+    }
+  }
+}

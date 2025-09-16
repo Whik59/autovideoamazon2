@@ -1,0 +1,297 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.overlay-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Title Container (Top Left) --- */
+.title-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: rgba(19, 26, 34, 0.9); /* Amazon Dark Blue */
+    padding: 15px 25px;
+    border-radius: 12px;
+    border-left: 5px solid #FF9900; /* Amazon Orange */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.position-tag {
+    font-size: 42px;
+    font-weight: 900;
+    color: #FF9900; /* Amazon Orange */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    max-width: 400px;
+    line-height: 1.2;
+}
+
+/* --- Price Container (Top Right) --- */
+.price-container {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: rgba(19, 26, 34, 0.9); /* Amazon Dark Blue */
+    padding: 15px 25px;
+    border-radius: 12px;
+    border-right: 5px solid #FF9900; /* Amazon Orange */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns price/rating to the right */
+    gap: 5px;
+}
+
+.price-new {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars-container {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+}
+
+.stars-background, .stars-foreground {
+    white-space: nowrap;
+    /* Use the same star character for alignment */
+}
+
+.stars-background {
+    color: #777; /* Grey for empty/background stars */
+}
+
+.stars-foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #FF9900; /* Amazon Orange for filled stars */
+}
+
+.rating-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+/* --- CTA Banner (Bottom Center) --- */
+.cta-group {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.info-banner {
+    display: none; /* This will hide the info banner */
+    padding: 15px 25px;
+    background-color: #d90429; /* A strong, modern red */
+    color: white;
+    font-size: 50px;
+    font-weight: 900;
+    border-radius: 12px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    border: 3px solid white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    animation: subtle-pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(255, 153, 0, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@keyframes subtle-pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(217, 4, 41, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+}
+
+@keyframes bounce-glow {
+    0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 12px 40px rgba(255, 153, 0, 0.8);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+}
+
+/* --- REVAMPED CTA BANNER --- */
+/* The .cta-banner is no longer part of .cta-group and is styled like .bottom-banner */
+.cta-banner {
+    position: absolute;
+    bottom: 30px; /* Moved further down from 60px */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #FF9900, #ffb84d); /* Amazon Orange Gradient */
+    color: white; /* White for arrows */
+    padding: 15px 40px;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    animation: bounce-glow 2.5s infinite;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    z-index: 20;
+}
+
+.cta-banner span {
+    margin: 0;
+    font-size: 42px; /* Slightly smaller than product title */
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    color: white; /* White for text */
+    white-space: nowrap; /* Ensures text stays on a single line */
+}
+
+.cta-banner .arrow {
+    font-size: 45px;
+    line-height: 1;
+}
+
+
+/* Legacy classes for backward compatibility */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.top-left {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: rgba(19, 26, 34, 0.85);
+    padding: 15px 30px;
+    border-radius: 12px;
+    border-left: 5px solid #FF9900;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.rank-number {
+    font-size: 45px;
+    font-weight: 900;
+    color: #FF9900;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.top-right {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: rgba(19, 26, 34, 0.85);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: right;
+}
+
+.price-original {
+    font-size: 30px;
+    color: #AAAAAA;
+    text-decoration: line-through;
+    margin-right: 15px;
+}
+
+.price-current {
+    font-size: 48px;
+    font-weight: 900;
+    color: #FFFFFF;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bottom-banner {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #FF9900, #ffb84d);
+    color: #131A22;
+    padding: 20px 50px;
+    border-radius: 60px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    animation: bounce-glow 2.5s infinite;
+}
+
+.bottom-banner p {
+    margin: 0;
+    font-size: 56px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+} 

@@ -1,0 +1,21 @@
+Jouw taak is om een lange en vaak onhandige Amazon-producttitel om te zetten in twee formaten voor een YouTube-video:
+
+1.  **WEERGAVETITEL:** Een korte, pakkende titel (max. 2-3 woorden) die op het scherm wordt weergegeven. Deze moet het merk en het belangrijkste kenmerk van het product bevatten.
+2.  **GESPROKEN NAAM:** Een zeer korte naam (1-3 woorden) die de verteller in de video zal gebruiken om naar het product te verwijzen. Meestal is dit het merk en het producttype.
+
+**INSTRUCTIES:**
+-   **Taal:** Schrijf in het Nederlands.
+-   **Stijl:** Duidelijk, beknopt en gemakkelijk te begrijpen voor een algemeen publiek.
+-   **Format:** Geef de twee titels exact in dit formaat terug, met elk label in hoofdletters, gevolgd door een dubbele punt.
+
+**VOORBEELD:**
+*   **Originele Titel:** "Rowenta X-Force Flex 14.60 Aqua & Animal Care Steelstofzuiger zonder snoer, Krachtig, 200AW Zuigkracht, Flex-scharnier, 1u10 Gebruikstijd, Digitaal Display, Hondenborstel, RH9990WO"
+*   **Jouw Output:**
+    WEERGAVETITEL: Rowenta X-Force Flex Steelstofzuiger
+    GESPROKEN NAAM: De Rowenta X-Force
+
+**PRODUCTGEGEVENS:**
+-   **Originele Titel:** {product_title}
+-   **Beschrijving:** {description_text}
+
+**JOUW OUTPUT:** 

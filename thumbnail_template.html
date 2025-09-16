@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail</title>
+    <link rel="stylesheet" href="thumbnail_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        .container::before {
+            background: {{background_gradient}} !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Enlarged product image taking most of the white background -->
+        <div class="product-image-container">
+            <img src="{{product_image_path}}" class="product-image">
+            <!-- Green tick removed as requested -->
+            <div class="price-badge-main">{{best_price_text}}</div>
+        </div>
+        
+        <!-- Keyword text repositioned to bottom-left -->
+        <div class="year-text">{{keyword_text}}</div>
+
+        <!-- NEW: Discount badge in top-right -->
+        <div class="discount-badge">{{discount_text}}</div>
+
+        <!-- Review count repositioned to middle-right -->
+        <div class="review-count">{{review_count}}<span class="star-rating">★★★★★</span></div>
+
+        <!-- Amazon-Style Price Container -->
+        <div class="price-container">
+            <div class="price-badge">{{price_from}}</div>
+            <div class="price-before">{{instead_of}} 199€</div>
+            <div class="price-after">89€</div>
+        </div>
+
+        <!-- Avatar removed for shadowban prevention -->
+
+        <!-- Second product removed as requested -->
+        
+        <!-- UPDATED: Before/After price comparison without arrow -->
+        <div class="before-after-container">
+            <div class="before-price">
+                <span class="before-label">{{before_text}}</span>
+                <span class="before-amount">{{before_price}}</span>
+            </div>
+            <div class="after-price">
+                <span class="after-label">{{after_text}}</span>
+                <span class="after-amount">{{after_price}}</span>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html> 

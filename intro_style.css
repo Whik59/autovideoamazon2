@@ -1,0 +1,67 @@
+body, html {
+    width: 1920px;
+    height: 1080px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* The overall image background remains transparent */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+   opacity: 1; 
+   background-color: rgba(19, 26, 34, 0.9); /* Semi-transparent dark blue background */
+   padding: 40px 80px;
+   border-radius: 25px;
+   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+   border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle glassy border */
+}
+
+.title {
+    font-size: 150px;
+    font-weight: 900;
+    color: #FFFFFF; /* White text */
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.7), 0 0 5px rgba(255, 153, 0, 0.7); /* Orange glow effect */
+}
+
+.subtitle {
+    font-size: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    letter-spacing: 3px;
+    color: #FF9900; /* Amazon Orange */
+    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Subtle drop shadow */
+}
+
+.image-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    background-color: #f0f2f2; /* Light grey background for images */
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* The animation is the cause of the transparency issue, so it will be removed. */
+/*
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+*/ 

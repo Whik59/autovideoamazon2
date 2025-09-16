@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3german",
+  "proxy_config": {
+    "host": "89.213.186.72",
+    "port": 5064,
+    "username": "C64M850866",
+    "password": "OUJP2XQN"
+  },
+  "target_country": "Germany",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.35 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.35",
+    "screen_width": 1600,
+    "screen_height": 900,
+    "timezone": "Europe/Berlin",
+    "language": "de-DE,de;q=0.9",
+    "platform": "Win32",
+    "platform_family": "Windows",
+    "hardware_concurrency": 32,
+    "device_memory": 2,
+    "max_touch_points": 0,
+    "webgl_vendor": "NVIDIA Corporation",
+    "webgl_renderer": "GeForce RTX 4080",
+    "canvas_noise": 0.0007518174190717414,
+    "webgl_noise": 1.8412462238459463e-05,
+    "audio_noise": 7.75689651270922e-06,
+    "audio_sample_rate": 96000,
+    "audio_buffer_size": 512,
+    "connection_type": "wifi",
+    "connection_downlink": 85.89,
+    "connection_rtt": 115,
+    "do_not_track": "0",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 5,
+    "viewport_width": 1513,
+    "viewport_height": 813,
+    "color_depth": 24,
+    "pixel_ratio": 2.5,
+    "battery_charging": true,
+    "battery_level": 0.3,
+    "permissions": {
+      "camera": "granted",
+      "microphone": "granted",
+      "notifications": "granted",
+      "geolocation": "granted"
+    }
+  }
+}

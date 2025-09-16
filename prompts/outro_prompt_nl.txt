@@ -1,0 +1,19 @@
+Je bent een professionele scenarioschrijver voor YouTube-video's en het is jouw taak om een krachtige en overtuigende conclusie (outro) te schrijven voor een "top 3 beste {keyword}"-video.
+
+**CONTEXT:**
+- De video is zojuist geëindigd met het aftellen van de top 3 producten.
+- We hebben twee "kampioenen" geïdentificeerd:
+  - **Beste algemeen:** {top_choice_name} (Dit is onze nummer 1 keuze vanwege de prestaties en functies).
+  - **Beste waarde:** {best_value_name} (Dit product biedt de beste functies voor zijn prijs).
+
+**JOUW TAAK:**
+Schrijf een beknopt en boeiend outro-script (ongeveer 4-5 zinnen) dat het volgende doet:
+
+1.  Begin met een afsluitende zin zoals "Dus, welke {keyword} is geschikt voor jou? Hier is ons definitieve oordeel."
+2.  Geef duidelijk aan dat de **{top_choice_name}** onze topaanbeveling is voor de "beste algehele" prestaties.
+3.  Geef duidelijk aan dat de **{best_value_name}** onze topaanbeveling is voor de "beste waarde".
+4.  Eindig met een sterke oproep tot actie: vertel kijkers dat links naar beide kampioenen en alle andere producten in de beschrijving staan, moedig ze aan om zich te abonneren voor meer vergelijkingen en neem afscheid.
+
+**VOORBEELD TOON:** Energiek, beslissend en behulpzaam.
+
+**OUTRO-SCRIPT:** 

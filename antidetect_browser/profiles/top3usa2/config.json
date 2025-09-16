@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3usa2",
+  "proxy_config": {
+    "host": "67.101.127.234",
+    "port": 5912,
+    "username": "DAIQ151147",
+    "password": "ZGFQRTSX"
+  },
+  "target_country": "USA",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.35 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.35",
+    "screen_width": 1536,
+    "screen_height": 864,
+    "timezone": "America/Atlanta",
+    "language": "en-US,en;q=0.9,es;q=0.8",
+    "platform": "Win32",
+    "platform_family": "Windows",
+    "hardware_concurrency": 32,
+    "device_memory": 24,
+    "max_touch_points": 5,
+    "webgl_vendor": "Advanced Micro Devices, Inc.",
+    "webgl_renderer": "Radeon RX 7800 XT",
+    "canvas_noise": 0.0009397990546154364,
+    "webgl_noise": 5.251867497432574e-05,
+    "audio_noise": 9.661384044940102e-06,
+    "audio_sample_rate": 44100,
+    "audio_buffer_size": 256,
+    "connection_type": "unknown",
+    "connection_downlink": 83.54,
+    "connection_rtt": 35,
+    "do_not_track": "0",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 5,
+    "viewport_width": 1476,
+    "viewport_height": 678,
+    "color_depth": 32,
+    "pixel_ratio": 2.5,
+    "battery_charging": false,
+    "battery_level": 0.31,
+    "permissions": {
+      "camera": "granted",
+      "microphone": "granted",
+      "notifications": "granted",
+      "geolocation": "prompt"
+    }
+  }
+}

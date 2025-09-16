@@ -1,0 +1,48 @@
+{
+  "profile_name": "top3dutch",
+  "proxy_config": {
+    "host": "140.233.210.186",
+    "port": 6716,
+    "username": "MC6SJ51148",
+    "password": "Q906VMCF"
+  },
+  "target_country": "Netherlands",
+  "fingerprint": {
+    "user_agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.35 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.35",
+    "screen_width": 1600,
+    "screen_height": 900,
+    "timezone": "Europe/Amsterdam",
+    "language": "nl-NL,nl;q=0.9,en;q=0.8",
+    "platform": "Linux x86_64",
+    "platform_family": "Linux",
+    "hardware_concurrency": 8,
+    "device_memory": 64,
+    "max_touch_points": 5,
+    "webgl_vendor": "NVIDIA Corporation",
+    "webgl_renderer": "GeForce RTX 3070",
+    "canvas_noise": 0.0007608766302881569,
+    "webgl_noise": 7.19980299425222e-05,
+    "audio_noise": 6.930321790066679e-06,
+    "audio_sample_rate": 44100,
+    "audio_buffer_size": 512,
+    "connection_type": "wifi",
+    "connection_downlink": 26.05,
+    "connection_rtt": 11,
+    "do_not_track": "0",
+    "cookie_enabled": true,
+    "java_enabled": false,
+    "plugins_length": 5,
+    "viewport_width": 1599,
+    "viewport_height": 714,
+    "color_depth": 32,
+    "pixel_ratio": 2,
+    "battery_charging": false,
+    "battery_level": 0.57,
+    "permissions": {
+      "camera": "prompt",
+      "microphone": "denied",
+      "notifications": "denied",
+      "geolocation": "granted"
+    }
+  }
+}

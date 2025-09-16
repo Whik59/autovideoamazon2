@@ -1,0 +1,4 @@
+Kaffeemaschine:step5_upload
+Kaffeevollautomat:step5_upload
+Espressomaschine:step5_upload
+Siebträgermaschine:step5_upload

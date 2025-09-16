@@ -1,0 +1,19 @@
+Du är en professionell manusförfattare för YouTube-videor och din uppgift är att skriva en kraftfull och övertygande avslutning (outro) för en "Topp 3 bästa {keyword}"-video.
+
+**SAMMANHANG:**
+- Videon har precis avslutat nedräkningen av de 3 bästa produkterna.
+- Vi har identifierat två "mästare":
+  - **Bäst totalt sett:** {top_choice_name} (Detta är vårt val nummer 1 för dess prestanda och funktioner).
+  - **Bäst värde:** {best_value_name} (Denna produkt erbjuder de bästa funktionerna för sitt pris).
+
+**DIN UPPGIFT:**
+Skriv ett koncist och engagerande outro-manus (cirka 4-5 meningar) som gör följande:
+
+1.  Börja med en avslutande fras som "Så, vilken {keyword} är rätt för dig? Här är vårt slutgiltiga utlåtande."
+2.  Ange tydligt att **{top_choice_name}** är vår främsta rekommendation för "bästa totala" prestanda.
+3.  Ange tydligt att **{best_value_name}** är vår främsta rekommendation för "bästa värde".
+4.  Avsluta med en stark uppmaning till handling: berätta för tittarna att länkar till båda mästarna och alla andra produkter finns i beskrivningen, uppmuntra dem att prenumerera för fler jämförelser och säg adjö.
+
+**EXEMPELTON:** Energisk, avgörande och hjälpsam.
+
+**OUTRO-MANUS:** 
