@@ -15,8 +15,10 @@ from io import BytesIO
 # Gemini import
 try:
     from google import genai as _genai
+    from google.genai import types
 except Exception:
     _genai = None
+    types = None
 
 class ThumbnailGenerator:
     """Generates AI-powered YouTube thumbnails using Gemini."""
@@ -147,67 +149,90 @@ class ThumbnailGenerator:
         prompt = (
             f"Create a high-impact YouTube thumbnail in 16:9 format for a '{keyword.lower()}' review video. "
             f"Background: Show a realistic {self._get_product_context(keyword)} environment that naturally relates to {keyword.lower()} usage. Make it bright, clean, and modern with natural lighting. "
-            f"Layout: Three distinct, futuristic-looking {keyword.lower()} products arranged prominently across the RIGHT 70% of the image, each clearly different in design and brand. Make them VERY LARGE and detailed with sleek, modern designs. "
-            "Human element: On the LEFT side, show a realistic woman (face and upper body) with a genuinely shocked, amazed expression pointing toward the winning product. Natural lighting, authentic human emotion. "
-            f"Visual hierarchy: The first two {keyword.lower()} products must have a strong RED GLOW that is CONTAINED around them and does not spill onto other parts of the image, especially the woman. "
-            f"The winning {keyword.lower()} should have an intense, bright GREEN GLOW with crackling energy sparks, be 160% larger than the others, and slightly overlap them to show dominance. "
-            f"NO badges, NO checkmarks, NO X's - only use contained glows. "
-            f"Typography: 'TOP 3 {keyword.lower()}' and '{self._t('tested_2025')}' text as a single, HUGE, ultra-futuristic, glowing holographic banner integrated into the top background. Make this banner and the text within it 20% larger than before, with stylized letters and dynamic light effects for maximum impact. "
-            f"Bottom text: '{self._t('shocking')}' as a holographic projection onto the kitchen counter or as a subtle, semi-transparent overlay at the very bottom, integrated with the scene's lighting. "
-            f"Products style: Make the three {keyword.lower()} products look distinct, premium, and highly futuristic - emphasize unique, sleek designs, metallic chrome finishes, vibrant LED accents, and cutting-edge modern styling. Each product must appear visually different from the others. "
-            "Lighting: Ensure all elements (woman, products, text) are lit consistently from the same light sources within the kitchen scene for maximum realism and cohesion. "
-            "Ensure all text is large and clear for mobile. Fill the entire 16:9 frame with NO black bars."
+            f"Layout: Three distinct, futuristic-looking {keyword.lower()} products arranged prominently across the RIGHT 70% of the image, each clearly different in design and brand. Make them exceptionally large and detailed with sleek, modern designs. "
+            "Human element: On the LEFT side, show a clearly visible, realistic woman (a close-up head and shoulders shot) with an expression of shock and amazement, pointing toward the winning product. "
+            f"Visual hierarchy: The first two {keyword.lower()} products must have a strong RED GLOW contained around them. "
+            f"The winning {keyword.lower()} should have a modern, bright GREEN GLOW with crackling energy sparks and subtle light trails. It should be 200% larger than the others and overlap them slightly. "
+            f"NO badges, checkmarks, or X's. "
+            f"Typography: At the top, display 'TOP 3 {keyword.lower()}' and '{self._t('tested_2025')}' in a modern, high-impact font with a metallic texture and a modern yellow-to-gold gradient. The text must be bold, 3D, and exceptionally large. The lighting on the text should perfectly match the scene's ambient light, with bright highlights and soft, realistic shadows to enhance its visibility. "
+            f"Bottom text: '{self._t('shocking')}' as a solid, single phrase in a clean, bold, white font. It must have a strong, soft black shadow projected behind it to make it pop out from the background with a clear 3D effect. "
+            f"Products style: All three {keyword.lower()} products should look premium and futuristic, with sleek designs and modern LED accents. Add subtle steam rising from them. "
+            "Overall Style: Apply a dynamic, high-contrast color grade to the entire image with a subtle lens flare from the winning product to increase the image's visual impact. "
+            "Ensure all text is large, clear, and legible on mobile. Fill the entire 16:9 frame with NO black bars."
         )
 
         print("🎨 Generating viral thumbnail with Gemini...")
         
-        max_retries = 3
-        for attempt in range(max_retries):
-            try:
-                print(f"🔄 Attempt {attempt + 1}/{max_retries}...")
-                client = _genai.Client(api_key=api_key)
-                response = client.models.generate_content(
-                    model="gemini-2.5-flash-image-preview",
-                    contents=[prompt],
-                )
+        try:
+            client = _genai.Client(api_key=api_key)
 
-                if not response.candidates:
-                    print("❌ Error: The API response did not contain any candidates.")
-                    if hasattr(response, 'prompt_feedback'):
-                        print(f"   - Prompt Feedback: {response.prompt_feedback}")
-                    if attempt < max_retries - 1:
-                        print("⏳ Waiting 5 seconds before retry...")
+            # Define safety settings to prevent content blocking
+            safety_settings = [
+                types.SafetySetting(
+                    category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+                    threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                ),
+                types.SafetySetting(
+                    category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                    threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                ),
+                types.SafetySetting(
+                    category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                    threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                ),
+                types.SafetySetting(
+                    category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                    threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                ),
+            ]
+
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = client.models.generate_content(
+                        model="gemini-2.5-flash-image-preview",
+                        contents=[prompt],
+                        config=types.GenerateContentConfig(
+                            safety_settings=safety_settings
+                        )
+                    )
+                    # If successful, break the loop
+                    break
+                except Exception as e:
+                    if "500" in str(e) and attempt < max_retries - 1:
+                        print(f"⚠️ Server error (500) encountered. Retrying in 5 seconds... ({attempt + 1}/{max_retries})")
                         time.sleep(5)
                         continue
-                    return False
-
-                for part in response.candidates[0].content.parts:
-                    if part.inline_data is not None:
-                        image_bytes = BytesIO(part.inline_data.data)
-                        
-                        # Just resize without cropping to preserve all content
-                        with Image.open(image_bytes) as img:
-                            img = img.resize((self.width, self.height), Image.LANCZOS)
-                            img.save(os.path.join(self.output_dir, output_filename))
-
-                        print(f"🖼️  Viral thumbnail saved to: {os.path.join(self.output_dir, output_filename)}")
-                        return True
-                
-                print("❌ Error: No image data found.")
-                if attempt < max_retries - 1:
-                    print("⏳ Waiting 5 seconds before retry...")
-                    time.sleep(5)
-                    continue
+                    else:
+                        raise e
+            else:
+                print("❌ AI thumbnail generation failed after multiple retries.")
                 return False
 
-            except Exception as e:
-                print(f"❌ Error on attempt {attempt + 1}: {e}")
-                if attempt < max_retries - 1:
-                    print("⏳ Waiting 5 seconds before retry...")
-                    time.sleep(5)
-                else:
-                    print("❌ All retry attempts failed.")
-                    return False
+            if not response.candidates:
+                print("❌ Error: The API response did not contain any candidates.")
+                if hasattr(response, 'prompt_feedback'):
+                    print(f"   - Prompt Feedback: {response.prompt_feedback}")
+                return False
+
+            for part in response.candidates[0].content.parts:
+                if part.inline_data is not None:
+                    image_bytes = BytesIO(part.inline_data.data)
+                    
+                    # Just resize without cropping to preserve all content
+                    with Image.open(image_bytes) as img:
+                        img = img.resize((self.width, self.height), Image.LANCZOS)
+                        img.save(os.path.join(self.output_dir, output_filename))
+
+                    print(f"🖼️  Viral thumbnail saved to: {os.path.join(self.output_dir, output_filename)}")
+                    return True
+            
+            print("❌ Error: No image data found.")
+            return False
+
+        except Exception as e:
+            print(f"❌ An unexpected error occurred during thumbnail generation: {e}")
+            return False
 
     def generate_thumbnail(self):
         print("🖼️  STEP 4: Generating AI Thumbnail")

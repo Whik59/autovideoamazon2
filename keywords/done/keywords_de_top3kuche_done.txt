@@ -5,3 +5,5 @@ Küchenwaage:step5_upload
 Kochfeld:step5_upload
 Backofen:step5_upload
 Mikrowelle:step5_upload
+Dampfgarer:step5_upload
+Sous-vide-Garer:step5_upload
