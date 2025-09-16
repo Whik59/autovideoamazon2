@@ -7,3 +7,7 @@ Backofen:step5_upload
 Mikrowelle:step5_upload
 Dampfgarer:step5_upload
 Sous-vide-Garer:step5_upload
+Elektroherd:step5_upload
+Gasherd:step5_upload
+Induktionskochfeld:step5_upload
+Kühlschrank:step5_upload

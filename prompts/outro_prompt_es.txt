@@ -2,17 +2,15 @@ Eres un guionista profesional de videos de YouTube y tu tarea es escribir una co
 
 **CONTEXTO:**
 - El video acaba de terminar la cuenta regresiva de los 3 mejores productos.
-- Hemos identificado a dos "campeones":
+- Hemos identificado a un "campeón":
   - **Mejor en General:** {top_choice_name} (Esta es nuestra elección número 1 por su rendimiento y características).
-  - **Mejor Relación Calidad-Precio:** {best_value_name} (Este producto ofrece las mejores características por su precio).
 
 **TU TAREA:**
 Escribe un guion de cierre (outro) conciso y atractivo (aproximadamente 4-5 frases) que haga lo siguiente:
 
 1.  Comienza con una frase concluyente como "¿Entonces, cuál {keyword} es el adecuado para ti? Aquí está nuestro veredicto final."
 2.  Declara claramente que el **{top_choice_name}** es nuestra principal recomendación por su rendimiento general.
-3.  Declara claramente que el **{best_value_name}** es nuestra principal recomendación por su relación calidad-precio.
-4.  Termina con una fuerte llamada a la acción: dile a los espectadores que los enlaces a ambos campeones y a todos los demás productos están en la descripción, anímalos a suscribirse para más comparativas y despídete.
+3.  Termina con una fuerte llamada a la acción: dile a los espectadores que los enlaces al campeón y a todos los demás productos están en la descripción, anímalos a suscribirse para más comparativas y despídete.
 
 **REGLAS CRÍTICAS:**
 - **USA LA PALABRA CLAVE EXACTA:** Siempre usa exactamente "{keyword}" - NO la traduzcas, NO la cambies, NO uses sinónimos, NO añadas palabras adicionales como "y electrodomésticos".

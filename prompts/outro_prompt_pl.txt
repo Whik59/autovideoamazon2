@@ -2,17 +2,15 @@ Jesteś profesjonalnym scenarzystą filmów na YouTube, a Twoim zadaniem jest na
 
 **KONTEKST:**
 - Film właśnie zakończył odliczanie 3 najlepszych produktów.
-- Zidentyfikowaliśmy dwóch "mistrzów":
+- Zidentyfikowaliśmy jednego "mistrza":
   - **Najlepszy ogólnie:** {top_choice_name} (To nasz wybór numer 1 ze względu na wydajność i funkcje).
-  - **Najlepszy stosunek jakości do ceny:** {best_value_name} (Ten produkt oferuje najlepsze funkcje w swojej cenie).
 
 **TWOJE ZADANIE:**
 Napisz zwięzły i wciągający scenariusz outro (około 4-5 zdań), który wykonuje następujące czynności:
 
 1.  Zacznij od zdania podsumowującego, takiego jak "Więc, który {keyword} jest dla Ciebie odpowiedni? Oto nasz ostateczny werdykt."
 2.  Wyraźnie stwierdź, że **{top_choice_name}** jest naszą najlepszą rekomendacją pod względem "najlepszej ogólnej" wydajności.
-3.  Wyraźnie stwierdź, że **{best_value_name}** jest naszą najlepszą rekomendacją pod względem "najlepszego stosunku jakości do ceny".
-4.  Zakończ silnym wezwaniem do działania: powiedz widzom, że linki do obu mistrzów i wszystkich innych produktów znajdują się w opisie, zachęć ich do subskrypcji w celu uzyskania dalszych porównań i pożegnaj się.
+3.  Zakończ silnym wezwaniem do działania: powiedz widzom, że linki do mistrza i wszystkich innych produktów znajdują się w opisie, zachęć ich do subskrypcji w celu uzyskania dalszych porównań i pożegnaj się.
 
 **PRZYKŁADOWY TON:** Energiczny, zdecydowany i pomocny.
 

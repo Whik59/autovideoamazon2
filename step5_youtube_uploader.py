@@ -396,12 +396,22 @@ if __name__ == "__main__":
     # --- NEW: Arguments for credential paths (for standalone use) ---
     parser.add_argument('--secrets-path', type=str, default='credentials/client1.json', help="Path to the client_secret.json file.")
     parser.add_argument('--token-path', type=str, help="Path to the token .pickle file. If not provided, it's generated from channel name.")
+    # --- NEW: Add arguments for session directories ---
+    parser.add_argument('--output-dir', type=str, help="Override default output directory.")
+    parser.add_argument('--audio-dir', type=str, help="Override default audio directory.")
+    parser.add_argument('--videos-dir', type=str, help="Override default videos directory.")
     args = parser.parse_args()
 
     try:
         print(f"Running Step 5 in standalone mode for language '{args.language}'")
         Config = get_config(args.language)
         print(f"Loaded configuration for language: {Config.CONTENT_LANGUAGE}")
+
+        # --- NEW: Override config paths if provided ---
+        if args.output_dir:
+            Config.OUTPUT_DIR = args.output_dir
+            print(f"   Overriding OUTPUT_DIR: {Config.OUTPUT_DIR}")
+        # audio-dir and videos-dir are not used in this script, but we accept them for consistency
 
         # --- MODIFIED: Handle token path generation in the 'tokens' directory ---
         token_path = args.token_path

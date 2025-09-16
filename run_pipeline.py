@@ -378,15 +378,246 @@ def run_pipeline(language, channel_name, start_date_str=None, base_date_str=None
             print("   - The pipeline will attempt to resume from the last completed step for this keyword.")
             break  # Stop the main keyword loop and exit the script gracefully
 
+def process_keyword(args):
+    """Function to process a single keyword, designed to be run in a thread."""
+    i, keyword, language, channel_name, start_datetime, done_keyword_file, secrets_file_path, gemini_api_keys, videos_scheduled_count = args
+    
+    Config = get_config(language)
+    num_gemini_keys = len(gemini_api_keys)
+
+    # --- NEW: Create a unique directory for this thread to work in ---
+    session_id = f"{keyword.replace(' ', '_')}_{os.urandom(4).hex()}"
+    base_output_dir = os.path.join(Config.OUTPUT_DIR, session_id)
+    
+    # Create unique paths for this session
+    session_output_dir = os.path.join(base_output_dir, "output")
+    session_audio_dir = os.path.join(base_output_dir, "audio")
+    session_videos_dir = os.path.join(base_output_dir, "videos")
+    
+    # Ensure these directories exist
+    os.makedirs(session_output_dir, exist_ok=True)
+    os.makedirs(session_audio_dir, exist_ok=True)
+    os.makedirs(session_videos_dir, exist_ok=True)
+    
+    print("\n" + "="*60)
+    print(f"Thread for '{keyword}' using session directory: {session_id}")
+
+
+    # Now, we need to pass these unique directories to each script.
+    # This requires modifying the subprocess calls.
+    common_args = [
+        '--output-dir', session_output_dir,
+        '--audio-dir', session_audio_dir,
+        '--videos-dir', session_videos_dir
+    ]
+
+    last_step = get_last_completed_step(done_keyword_file, keyword)
+    if last_step == 'step5_upload':
+        print(f"SUCCESS: Keyword '{keyword}' has already been fully processed. Skipping.")
+        shutil.rmtree(base_output_dir) # Clean up session directory
+        return True # Indicate success
+
+    try:
+        # --- Step 1: Scraper ---
+        if not last_step:
+            print(f"\n[1/5] Running Scraper for '{keyword}'...")
+            scraper_cmd = ['python', 'step1_scraper.py', language, keyword] + common_args
+            try:
+                scraper_result = subprocess.run(scraper_cmd, check=False, encoding='utf-8', errors='replace')
+                if scraper_result.returncode == 10:
+                    print(f"🟡 WARNING: Not enough products for '{keyword}'. Skipping.")
+                    shutil.rmtree(base_output_dir)
+                    return None # Indicate skip
+                elif scraper_result.returncode != 0:
+                    print(f"❌ Scraper failed for '{keyword}' with return code {scraper_result.returncode}")
+                    raise subprocess.CalledProcessError(scraper_result.returncode, scraper_result.args)
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Scraper subprocess failed for '{keyword}': {e}")
+                raise e
+
+        # --- Step 2: Content Generation (No longer locked) ---
+        if not last_step:
+            print(f"\n[2/5] Running Content Generation for '{keyword}'...")
+            step2_cmd = ['python', 'step2_content.py', language, '--keyword', keyword, '--channel', channel_name] + common_args
+            if num_gemini_keys > 0:
+                gemini_key_index = (videos_scheduled_count // 5) % num_gemini_keys
+                selected_gemini_key = gemini_api_keys[gemini_key_index]
+                step2_cmd.extend(['--api-key', selected_gemini_key])
+            subprocess.run(step2_cmd, check=True, encoding='utf-8', errors='replace')
+            mark_step_as_done(done_keyword_file, keyword, 'step2_content')
+        else:
+            print(f"\n[1-2/5] Skipping Scraper & Content for '{keyword}' (already done).")
+
+        # --- Step 3: Video ---
+        if last_step in [None, 'step2_content']:
+            print(f"\n[3/5] Running Video Assembly for '{keyword}'...")
+            step3_cmd = ['python', 'step3_video_simple.py', language] + common_args
+            subprocess.run(step3_cmd, check=True, encoding='utf-8', errors='replace')
+            mark_step_as_done(done_keyword_file, keyword, 'step3_video')
+        else:
+            print(f"\n[3/5] Skipping Video Assembly for '{keyword}' (already done).")
+
+        # --- Step 4: Thumbnail (Locked) ---
+        if last_step in [None, 'step2_content', 'step3_video']:
+            print(f"\n[4/5] Running Thumbnail Generation for '{keyword}'...")
+            step4_cmd = ['python', 'step4_thumbnail.py', language] + common_args
+            subprocess.run(step4_cmd, check=True, encoding='utf-8', errors='replace')
+            mark_step_as_done(done_keyword_file, keyword, 'step4_thumbnail')
+        else:
+            print(f"\n[4/5] Skipping Thumbnail Generation for '{keyword}' (already done).")
+        
+        # --- Step 5: Upload ---
+        token_path = os.path.join('tokens', f"token_{channel_name}.pickle")
+        publish_datetime = start_datetime + timedelta(hours=12 * videos_scheduled_count)
+        publish_at_iso = publish_datetime.isoformat() + "Z"
+        
+        upload_cmd = [
+            'python', 'step5_youtube_uploader.py', language,
+            '--channel', channel_name,
+            '--publish-at', publish_at_iso,
+            '--secrets-path', secrets_file_path,
+            '--token-path', token_path
+        ] + common_args
+        
+        print(f"\n[5/5] Attempting upload for '{keyword}'...")
+        result = subprocess.run(upload_cmd, check=True, text=True, encoding='utf-8', errors='replace')
+        
+        mark_step_as_done(done_keyword_file, keyword, 'step5_upload')
+        print(f"\nSUCCESS: Successfully processed and scheduled video for keyword: '{keyword}'")
+        
+        # Clean up the session directory after a successful upload
+        print(f"🧹 Cleaning up session directory: {session_id}")
+        shutil.rmtree(base_output_dir)
+
+        return True
+
+    except (subprocess.CalledProcessError, Exception) as e:
+        print(f"\n❌ FATAL ERROR processing keyword '{keyword}': {e}")
+        # Clean up the session directory on failure as well
+        if os.path.exists(base_output_dir):
+            shutil.rmtree(base_output_dir)
+        return False
+
+
 if __name__ == "__main__":
     import argparse
-    # (Argparse setup remains the same)
-    parser = argparse.ArgumentParser(description="Run the full AutoVideo pipeline with smart scheduling.")
+    import threading
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    parser = argparse.ArgumentParser(description="Run the full AutoVideo pipeline with smart scheduling and concurrency.")
     parser.add_argument('language', type=str, help="Language code (e.g., 'es').")
     parser.add_argument('channel_name', type=str, help="Unique name for the YouTube channel.")
-    parser.add_argument('--start-date', type=str, help="Optional start date for scheduling (YYYY-MM-DD). Overrides automatic continuation from last video.")
-    parser.add_argument('--base-date', type=str, help="Base date for first video calculation (YYYY-MM-DD). Defaults to 2025-09-13.")
-    parser.add_argument('--max-videos', type=int, help="Maximum number of videos to create and upload (limits keywords processed).")
+    parser.add_argument('--start-date', type=str, help="Optional start date for scheduling (YYYY-MM-DD). Overrides automatic continuation.")
+    parser.add_argument('--base-date', type=str, help="Base date for first video calculation (YYYY-MM-DD).")
+    parser.add_argument('--max-videos', type=int, help="Maximum number of videos to create.")
+    parser.add_argument('--num-workers', type=int, default=1, help="Number of videos to process concurrently.")
+    parser.add_argument('--reset', action='store_true', help="Reset the pipeline by deleting output, done files, and tokens.")
     args = parser.parse_args()
     
-    run_pipeline(args.language, args.channel_name, args.start_date, args.base_date, args.max_videos) 
+    # --- NEW: Handle the --reset flag ---
+    if args.reset:
+        print("💥 --reset flag detected. Resetting the pipeline...")
+        
+        # 1. Delete the entire output directory
+        output_dir = "output"
+        if os.path.exists(output_dir):
+            try:
+                shutil.rmtree(output_dir)
+                print(f"  - ✅ Deleted directory: {output_dir}")
+            except Exception as e:
+                print(f"  - ⚠️  Could not delete {output_dir}: {e}")
+        os.makedirs(output_dir, exist_ok=True) # Recreate it
+        
+        # 2. Delete all done files
+        done_files_path = os.path.join("keywords", "done")
+        if os.path.exists(done_files_path):
+            for item in os.listdir(done_files_path):
+                if item.endswith("_done.txt"):
+                    try:
+                        os.remove(os.path.join(done_files_path, item))
+                        print(f"  - ✅ Deleted done file: {item}")
+                    except Exception as e:
+                        print(f"  - ⚠️  Could not delete {item}: {e}")
+
+        # 3. Delete the tokens directory
+        tokens_dir = "tokens"
+        if os.path.exists(tokens_dir):
+            try:
+                shutil.rmtree(tokens_dir)
+                print(f"  - ✅ Deleted directory: {tokens_dir}")
+            except Exception as e:
+                print(f"  - ⚠️  Could not delete {tokens_dir}: {e}")
+        os.makedirs(tokens_dir, exist_ok=True) # Recreate it
+
+        print("✅ Pipeline reset complete. Starting a fresh run.")
+        print("="*60)
+
+
+    # We need to call the original setup logic from run_pipeline
+    # This is a bit of a hack; ideally, we'd refactor run_pipeline into setup and execution parts.
+    
+    # 1. Setup from run_pipeline
+    keyword_file_path = os.path.join("keywords", args.language, f"{args.channel_name}.txt")
+    done_keyword_file = f"keywords/done/keywords_{args.language}_{args.channel_name}_done.txt"
+    
+    if not os.path.exists(keyword_file_path):
+        print(f"❌ ERROR: Keyword file not found: {keyword_file_path}")
+        sys.exit(1)
+        
+    with open(keyword_file_path, 'r', encoding='utf-8') as f:
+        all_keywords = [line.strip() for line in f if line.strip()]
+    
+    pending_keywords = []
+    if args.max_videos and args.max_videos > 0:
+        for keyword in all_keywords:
+            if get_last_completed_step(done_keyword_file, keyword) != 'step5_upload':
+                pending_keywords.append(keyword)
+        keywords_to_process = pending_keywords[:args.max_videos]
+        print(f"📊 LIMIT APPLIED: Processing {len(keywords_to_process)} of {len(pending_keywords)} pending keywords.")
+    else:
+        keywords_to_process = all_keywords
+        print(f"Processing {len(keywords_to_process)} total keywords for channel '{args.channel_name}'.")
+
+    if args.start_date:
+        start_datetime = datetime.strptime(args.start_date, '%Y-%m-%d')
+    else:
+        base_date = datetime.strptime(args.base_date, '%Y-%m-%d') if args.base_date else None
+        start_datetime = get_last_scheduled_time(args.channel_name, args.language, base_date)
+
+    secrets_file_path = os.path.join('credentials', f"{args.channel_name}.json")
+    if not os.path.exists(secrets_file_path):
+        print(f"❌ ERROR: Credential file not found: {secrets_file_path}")
+        sys.exit(1)
+        
+    Config = get_config(args.language)
+    gemini_api_keys = [k for k in getattr(Config, 'GEMINI_API_KEYS', []) if k and "YOUR" not in k]
+    
+    # 2. Concurrent Execution
+    videos_scheduled_count = 0
+    
+    tasks = []
+    for i, keyword in enumerate(keywords_to_process):
+        # We need to figure out the correct scheduled count for each video's publish time
+        # This is tricky as we don't know the order of completion.
+        # For now, let's just increment. A better solution would be to use a shared counter.
+        task_args = (i, keyword, args.language, args.channel_name, start_datetime, done_keyword_file, secrets_file_path, gemini_api_keys, videos_scheduled_count + i)
+        tasks.append(task_args)
+
+    with ThreadPoolExecutor(max_workers=args.num_workers) as executor:
+        futures = {executor.submit(process_keyword, task): task for task in tasks}
+        
+        for future in as_completed(futures):
+            keyword = futures[future][1] # Get keyword from original task args
+            try:
+                result = future.result()
+                if result is True:
+                    print(f"✅ COMPLETED: Keyword '{keyword}' processed successfully.")
+                elif result is None:
+                    print(f"⏩ SKIPPED: Keyword '{keyword}' was skipped.")
+                else:
+                    print(f"⚠️ FAILED: Keyword '{keyword}' failed processing.")
+            except Exception as exc:
+                print(f"💥 EXCEPTION: An error occurred processing keyword '{keyword}': {exc}")
+    
+    print("\n\nPipeline finished.")
+    # run_pipeline(args.language, args.channel_name, args.start_date, args.base_date, args.max_videos) 

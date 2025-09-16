@@ -271,12 +271,22 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Standalone thumbnail generator for a specific language.")
     parser.add_argument('language', type=str, help="The language code to use (e.g., 'es', 'de').")
+    # --- NEW: Add arguments for session directories ---
+    parser.add_argument('--output-dir', type=str, help="Override default output directory.")
+    parser.add_argument('--audio-dir', type=str, help="Override default audio directory.")
+    parser.add_argument('--videos-dir', type=str, help="Override default videos directory.")
     args = parser.parse_args()
 
     try:
         print(f"▶️  Running Step 4 in standalone mode for language '{args.language}'")
         Config = get_config(args.language)
         print(f"✅ Loaded configuration for language: {Config.CONTENT_LANGUAGE}")
+
+        # --- NEW: Override config paths if provided ---
+        if args.output_dir:
+            Config.OUTPUT_DIR = args.output_dir
+            print(f"   Overriding OUTPUT_DIR: {Config.OUTPUT_DIR}")
+        # audio-dir and videos-dir are not used in this script, but we accept them for consistency
 
         generator = ThumbnailGenerator(Config)
         generator.generate_thumbnail()

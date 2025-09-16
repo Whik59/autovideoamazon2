@@ -2,17 +2,15 @@ Sei un sceneggiatore professionista di video di YouTube e il tuo compito è scri
 
 **CONTESTO:**
 - Il video ha appena terminato il conto alla rovescia dei 3 migliori prodotti.
-- Abbiamo identificato due "campioni":
+- Abbiamo identificato un "campione":
   - **Migliore in assoluto:** {top_choice_name} (Questa è la nostra scelta numero 1 per le sue prestazioni e caratteristiche).
-  - **Miglior rapporto qualità-prezzo:** {best_value_name} (Questo prodotto offre le migliori caratteristiche per il suo prezzo).
 
 **IL TUO COMPITO:**
 Scrivi uno script di outro conciso e coinvolgente (circa 4-5 frasi) che faccia quanto segue:
 
 1.  Inizia con una frase conclusiva come "Quindi, quale {keyword} fa per te? Ecco il nostro verdetto finale."
 2.  Dichiara chiaramente che il **{top_choice_name}** è la nostra migliore raccomandazione per le migliori prestazioni complessive.
-3.  Dichiara chiaramente che il **{best_value_name}** è la nostra migliore raccomandazione per il miglior rapporto qualità-prezzo.
-4.  Termina con un forte invito all'azione: dì agli spettatori che i link a entrambi i campioni e a tutti gli altri prodotti si trovano nella descrizione, incoraggiali a iscriversi per ulteriori confronti e saluta.
+3.  Termina con un forte invito all'azione: dì agli spettatori che i link al campione e a tutti gli altri prodotti si trovano nella descrizione, incoraggiali a iscriversi per ulteriori confronti e saluta.
 
 **TONO DI ESEMPIO:** Energico, deciso e utile.
 

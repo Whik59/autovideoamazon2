@@ -2,3 +2,11 @@ Kaffeemaschine:step5_upload
 Kaffeevollautomat:step5_upload
 Espressomaschine:step5_upload
 Siebträgermaschine:step5_upload
+Chemex:step5_upload
+Kapselmaschine:step5_upload
+Padmaschine:step5_upload
+French Press:step5_upload
+V60:step5_upload
+Cold Brew Maker:step5_upload
+Aeropress:step5_upload
+Kaffeemühle:step5_upload

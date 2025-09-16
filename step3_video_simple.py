@@ -19,7 +19,8 @@ class SimpleVideoAssembler:
     
     def __init__(self, config):
         self.config = config
-        self.temp_dir = self.config.TEMP_DIR
+        # --- MODIFIED: Create a temp directory inside the session-specific output directory ---
+        self.temp_dir = os.path.join(self.config.OUTPUT_DIR, "temp")
         os.makedirs(self.temp_dir, exist_ok=True)
         self.hti = Html2Image(output_path=self.temp_dir, size=(1920, 1080))
         
@@ -551,12 +552,27 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Standalone video assembler for a specific language.")
     parser.add_argument('language', type=str, help="The language code to use (e.g., 'es', 'de').")
+    # --- NEW: Add arguments for session directories ---
+    parser.add_argument('--output-dir', type=str, help="Override default output directory.")
+    parser.add_argument('--audio-dir', type=str, help="Override default audio directory.")
+    parser.add_argument('--videos-dir', type=str, help="Override default videos directory.")
     args = parser.parse_args()
 
     try:
         print(f"▶️  Running Step 3 in standalone mode for language '{args.language}'")
         Config = get_config(args.language)
         print(f"✅ Loaded configuration for language: {Config.CONTENT_LANGUAGE}")
+
+        # --- NEW: Override config paths if provided ---
+        if args.output_dir:
+            Config.OUTPUT_DIR = args.output_dir
+            print(f"   Overriding OUTPUT_DIR: {Config.OUTPUT_DIR}")
+        if args.audio_dir:
+            Config.AUDIO_DIR = args.audio_dir
+            print(f"   Overriding AUDIO_DIR: {Config.AUDIO_DIR}")
+        if args.videos_dir:
+            Config.VIDEOS_DIR = args.videos_dir
+            print(f"   Overriding VIDEOS_DIR: {Config.VIDEOS_DIR}")
 
         assembler = SimpleVideoAssembler(Config)
         assembler.run()

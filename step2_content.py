@@ -758,12 +758,27 @@ if __name__ == "__main__":
     parser.add_argument('--preview', action='store_true', help='Run in preview mode without generating audio.')
     # --- NEW: Argument to accept a specific API key ---
     parser.add_argument('--api-key', type=str, help='(Optional) Gemini API key to use for this run.')
+    # --- NEW: Add arguments for session directories ---
+    parser.add_argument('--output-dir', type=str, help="Override default output directory.")
+    parser.add_argument('--audio-dir', type=str, help="Override default audio directory.")
+    parser.add_argument('--videos-dir', type=str, help="Override default videos directory.")
     args = parser.parse_args()
 
     try:
         print(f"▶️  Running Step 2 in standalone mode for language '{args.language}'")
         Config = get_config(args.language)
         print(f"✅ Loaded configuration for language: {Config.CONTENT_LANGUAGE}")
+
+        # --- NEW: Override config paths if provided ---
+        if args.output_dir:
+            Config.OUTPUT_DIR = args.output_dir
+            print(f"   Overriding OUTPUT_DIR: {Config.OUTPUT_DIR}")
+        if args.audio_dir:
+            Config.AUDIO_DIR = args.audio_dir
+            print(f"   Overriding AUDIO_DIR: {Config.AUDIO_DIR}")
+        if args.videos_dir:
+            Config.VIDEOS_DIR = args.videos_dir
+            # Note: Step 2 doesn't use VIDEOS_DIR, but we add for consistency
 
         generator = ContentGenerator(Config, gemini_api_key=args.api_key, channel_name=args.channel)
         generator.run(keyword=args.keyword, preview_only=args.preview)

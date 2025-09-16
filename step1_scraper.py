@@ -864,6 +864,10 @@ if __name__ == "__main__":
     parser.add_argument('language', type=str, help="The language code to use (e.g., 'es', 'de').")
     parser.add_argument('keyword', type=str, nargs='?', default=None, help="The keyword to scrape on Amazon (optional).")
     parser.add_argument('--channel', type=str, default=None, help="Channel name to load keywords from keywords/{language}/{channel}.txt (optional).")
+    # --- NEW: Add arguments for session directories ---
+    parser.add_argument('--output-dir', type=str, help="Override default output directory.")
+    parser.add_argument('--audio-dir', type=str, help="Override default audio directory.")
+    parser.add_argument('--videos-dir', type=str, help="Override default videos directory.")
     args = parser.parse_args()
 
     try:
@@ -907,6 +911,17 @@ if __name__ == "__main__":
         Config = get_config(args.language)
         safe_print(f"SUCCESS: Loaded configuration for Amazon TLD: '{Config.AMAZON_TLD}'")
         
+        # --- NEW: Override config paths if provided ---
+        if args.output_dir:
+            Config.OUTPUT_DIR = args.output_dir
+            safe_print(f"   Overriding OUTPUT_DIR: {Config.OUTPUT_DIR}")
+        if args.audio_dir:
+            Config.AUDIO_DIR = args.audio_dir
+            # Note: Scraper doesn't use AUDIO_DIR, but we add for consistency
+        if args.videos_dir:
+            Config.VIDEOS_DIR = args.videos_dir
+            safe_print(f"   Overriding VIDEOS_DIR: {Config.VIDEOS_DIR}")
+
         # Instantiate and run the scraper
         scraper = AmazonScraper(Config)
         scraped_data = scraper.scrape_products(keyword)
