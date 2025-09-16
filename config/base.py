@@ -116,6 +116,8 @@ class Config:
     GEMINI_TTS_PROMPT = 'Say the following text in a natural, clear, and engaging way.'
 
     # --- Thumbnail Settings --- 
+    # Provider for Step 4 thumbnails: 'html' (template) or 'gemini' (AI)
+    THUMBNAIL_PROVIDER = os.getenv('THUMBNAIL_PROVIDER', 'gemini')
 
     # --- NEW: Anti-Detect Browser Profile Mapping ---
     # Maps a YouTube channel name to the name of the anti-detect browser profile.
