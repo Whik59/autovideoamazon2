@@ -930,6 +930,10 @@ if __name__ == "__main__":
         if scraped_data is None:
                 safe_print("   -> Exiting with status code 10 (not enough products found).")
                 sys.exit(10)
+        # --- NEW: Also exit with code 10 if NO products were found ---
+        if not scraped_data:
+                safe_print("   -> Exiting with status code 10 (zero products found).")
+                sys.exit(10)
 
     except ImportError as e:
         safe_print(f"ERROR: {e}")

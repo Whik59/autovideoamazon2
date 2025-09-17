@@ -380,7 +380,7 @@ def run_pipeline(language, channel_name, start_date_str=None, base_date_str=None
 
 def process_keyword(args):
     """Function to process a single keyword, designed to be run in a thread."""
-    i, keyword, language, channel_name, start_datetime, done_keyword_file, secrets_file_path, gemini_api_keys, videos_scheduled_count = args
+    i, keyword, language, channel_name, start_datetime, done_keyword_file, secrets_file_path, gemini_api_keys, videos_scheduled_count, gemini_semaphore = args
     
     Config = get_config(language)
     num_gemini_keys = len(gemini_api_keys)
@@ -435,16 +435,19 @@ def process_keyword(args):
                 print(f"❌ Scraper subprocess failed for '{keyword}': {e}")
                 raise e
 
-        # --- Step 2: Content Generation (No longer locked) ---
+        # --- Step 2: Content Generation (Now controlled by Semaphore) ---
         if not last_step:
-            print(f"\n[2/5] Running Content Generation for '{keyword}'...")
-            step2_cmd = ['python', 'step2_content.py', language, '--keyword', keyword, '--channel', channel_name] + common_args
-            if num_gemini_keys > 0:
-                gemini_key_index = (videos_scheduled_count // 5) % num_gemini_keys
-                selected_gemini_key = gemini_api_keys[gemini_key_index]
-                step2_cmd.extend(['--api-key', selected_gemini_key])
-            subprocess.run(step2_cmd, check=True, encoding='utf-8', errors='replace')
-            mark_step_as_done(done_keyword_file, keyword, 'step2_content')
+            print(f"\n[2/5] Waiting for Gemini API slot for '{keyword}'...")
+            with gemini_semaphore:
+                print(f"   ✅ Slot acquired. Running Content Generation for '{keyword}'...")
+                step2_cmd = ['python', 'step2_content.py', language, '--keyword', keyword, '--channel', channel_name] + common_args
+                if num_gemini_keys > 0:
+                    gemini_key_index = (videos_scheduled_count // 5) % num_gemini_keys
+                    selected_gemini_key = gemini_api_keys[gemini_key_index]
+                    step2_cmd.extend(['--api-key', selected_gemini_key])
+                subprocess.run(step2_cmd, check=True, encoding='utf-8', errors='replace')
+                mark_step_as_done(done_keyword_file, keyword, 'step2_content')
+            print(f"   -> Gemini API slot released by '{keyword}'.")
         else:
             print(f"\n[1-2/5] Skipping Scraper & Content for '{keyword}' (already done).")
 
@@ -457,12 +460,15 @@ def process_keyword(args):
         else:
             print(f"\n[3/5] Skipping Video Assembly for '{keyword}' (already done).")
 
-        # --- Step 4: Thumbnail (Locked) ---
+        # --- Step 4: Thumbnail (Now controlled by Semaphore) ---
         if last_step in [None, 'step2_content', 'step3_video']:
-            print(f"\n[4/5] Running Thumbnail Generation for '{keyword}'...")
-            step4_cmd = ['python', 'step4_thumbnail.py', language] + common_args
-            subprocess.run(step4_cmd, check=True, encoding='utf-8', errors='replace')
-            mark_step_as_done(done_keyword_file, keyword, 'step4_thumbnail')
+            print(f"\n[4/5] Waiting for Gemini API slot for '{keyword}'...")
+            with gemini_semaphore:
+                print(f"   ✅ Slot acquired. Running Thumbnail Generation for '{keyword}'...")
+                step4_cmd = ['python', 'step4_thumbnail.py', language] + common_args
+                subprocess.run(step4_cmd, check=True, encoding='utf-8', errors='replace')
+                mark_step_as_done(done_keyword_file, keyword, 'step4_thumbnail')
+            print(f"   -> Gemini API slot released by '{keyword}'.")
         else:
             print(f"\n[4/5] Skipping Thumbnail Generation for '{keyword}' (already done).")
         
@@ -511,6 +517,7 @@ if __name__ == "__main__":
     parser.add_argument('--base-date', type=str, help="Base date for first video calculation (YYYY-MM-DD).")
     parser.add_argument('--max-videos', type=int, help="Maximum number of videos to create.")
     parser.add_argument('--num-workers', type=int, default=1, help="Number of videos to process concurrently.")
+    parser.add_argument('--gemini-workers', type=int, default=2, help="Number of concurrent requests to Gemini API.")
     parser.add_argument('--reset', action='store_true', help="Reset the pipeline by deleting output, done files, and tokens.")
     args = parser.parse_args()
     
@@ -593,6 +600,7 @@ if __name__ == "__main__":
     gemini_api_keys = [k for k in getattr(Config, 'GEMINI_API_KEYS', []) if k and "YOUR" not in k]
     
     # 2. Concurrent Execution
+    gemini_semaphore = threading.Semaphore(args.gemini_workers)
     videos_scheduled_count = 0
     
     tasks = []
@@ -600,7 +608,7 @@ if __name__ == "__main__":
         # We need to figure out the correct scheduled count for each video's publish time
         # This is tricky as we don't know the order of completion.
         # For now, let's just increment. A better solution would be to use a shared counter.
-        task_args = (i, keyword, args.language, args.channel_name, start_datetime, done_keyword_file, secrets_file_path, gemini_api_keys, videos_scheduled_count + i)
+        task_args = (i, keyword, args.language, args.channel_name, start_datetime, done_keyword_file, secrets_file_path, gemini_api_keys, videos_scheduled_count + i, gemini_semaphore)
         tasks.append(task_args)
 
     with ThreadPoolExecutor(max_workers=args.num_workers) as executor:

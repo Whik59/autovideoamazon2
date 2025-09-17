@@ -8,4 +8,6 @@ python step5_youtube_uploader.py de --channel top3kuche --secrets-path credentia
 
 vérification thumbnail aussi si new channel
 python run_pipeline.py fr top3cuisine --max-videos 4
-python run_pipeline.py de TopMediaMeister --start-date 2025-09-15 --max-videos 2
+python run_pipeline.py de top3kuche --start-date 2025-09-16 --max-videos 6
+
+python run_pipeline.py de top3kaffee --start-date 2025-09-16 --max-videos 4 --num-workers 4

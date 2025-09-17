@@ -6,3 +6,7 @@ Heimkino:step5_upload
 Hi-Fi-Verstärker:step5_upload
 Plattenspieler:step5_upload
 Regallautsprecher:step5_upload
+Netzwerk-Audioplayer:step5_upload
+Standlautsprecher:step5_upload
+Subwoofer:step5_upload
+Audio-DAC:step5_upload

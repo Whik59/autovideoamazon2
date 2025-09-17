@@ -2,3 +2,7 @@ Saugroboter mit Wischfunktion:step5_upload
 Kabelloser Stabstaubsauger:step5_upload
 Beutelloser Staubsauger:step5_upload
 Dampfreiniger:step5_upload
+Luftreiniger:step5_upload
+Standventilator:step5_upload
+Luftbefeuchter:step5_upload
+Luftentfeuchter:step5_upload

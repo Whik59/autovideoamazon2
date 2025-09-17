@@ -255,14 +255,14 @@ class YouTubeUploader:
         video_path = self.find_latest_video()
         if not video_path:
             print("ERROR: No video file found to upload in the 'output' directory.")
-            return
+            sys.exit(1) # --- NEW: Exit with an error code ---
         print(f"SUCCESS: Found video to upload: {os.path.basename(video_path)}")
 
         # 2. Load metadata from enhanced_product.json
         data_file = os.path.join(self.config.OUTPUT_DIR, "enhanced_product.json")
         if not os.path.exists(data_file):
             print(f"ERROR: Enhanced data file not found at '{data_file}'.")
-            return
+            sys.exit(1) # --- NEW: Exit with an error code ---
 
         with open(data_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
